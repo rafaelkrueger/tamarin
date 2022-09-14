@@ -1,0 +1,69 @@
+.pedidos{
+    padding-top:20%;
+    padding-left:20%;
+    padding-right:20%;
+    margin-right:-270%;
+    margin-top: 20%;
+    background-color: white;
+}
+
+
+.pedidos-title{
+    color:#3ea175;
+    font-weight: 530;
+}
+
+.pedidos-wrap{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#card-id{
+    border: 0px whitesmoke solid;
+    width:35%;
+    padding: 2% 2% 0% 2%;
+    margin:5%;
+    box-shadow: 3px 3px 7px rgba(0,0,0,0.7);
+}
+
+.card-top-title{
+    font-weight: 500;
+    color:#3ea175;
+}
+
+#card-pedidos-title{
+    font-size: 13pt;
+    color:rgba(0,0,0,0.8);
+}
+
+.pedido-ul{
+    list-style: circle;
+}
+
+.card-description{
+    color:#3ea175;
+    font-weight: 500;
+    margin-bottom: -2%;
+}
+
+.costumer-info{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+#sent-pedido{
+    display: flex;
+    margin-bottom: -10%;
+}
+
+#sent-pedido-button{
+    margin: auto;
+    margin-bottom: 12%;
+}
+
+@media only screen and (max-width:455px){
+    #card-id{
+        width:100%;
+    }
+ }

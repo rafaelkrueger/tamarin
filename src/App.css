@@ -1,38 +1,439 @@
+@font-face {
+  font-family: imported;
+  src: url(Fontes/SilianRail_PERSONAL_USE_ONLY.otf);
+}
 .App {
+  text-align: center;
+  font-family:Imported;
+}
+
+body{
+  overflow-x: hidden;
+  font-family: silian rails;
+}
+body::-webkit-scrollbar{
+  width:5px;
+}
+body::-webkit-scrollbar-thumb{
+  background-color:black;
+  width:5px;
+}
+
+@media all and (max-width:500px) {
+
+  /*Agile responsive*/
+  #agile-section{
+    display: flex;
+    flex-direction: column;
+  }
+  #agile-slider{
+    width: 100%;
+  }
+  .img-slider{
+    width:100%;
+  }
+  .agile-title{
+    margin-top: 10%;
+    font-size: 10pt;
+  }
+  .agile-sub-title{
+    font-size: 8pt;
+  }
+  .agile-text{
+    font-size: 7pt;
+    text-align: justify;
+  }
+  /*section responsive style*/
+  .section{
+    margin-bottom: 30%;
+  }
+  .section-title{
+    font-size: 13pt;
+  }
+  #section-description-style{
+    font-size: 8.5pt;
+  }
+  /*Information card responsive*/
+  .information-content{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15%;
+    margin-top: 15%;
+  }
+  .information-card-title{
+    font-size: 9pt;
+  }
+  .information-card-description{
+    font-size: 7pt;
+  }
+  
+  /*footer responsive style*/
+  #footer-style{
+    padding:5%;
+  }
+  #footer-row{
+    padding:5%;
+
+  }
+  /*container*/
+  .container{
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.2fr 3fr;
+    grid-template-areas: "nav" "main";
+  }
+}
+
+/*Navbar Style*/
+
+#navbar{
+  background-color: black;
+  backdrop-filter:blur(10px);
+  display:flex;
+  position:fixed;
+  top:0px;
+  width:100%;
+  z-index: 3;
+  padding: 2%;
+}
+
+.nav-link{
+  justify-content: space-around;
+  font-size: large;
+  font-family: 'Century Gothic';
+  font-weight: unset;
+  color:black;
+  text-decoration: none;
+
+}
+
+#logo-image{
+  text-decoration:none;
+  color:white;  
+  font-weight:bold;  
+}
+#nav-links{
+  color:white;
+  color:rgba(0,0,0,0.5);  
+}
+
+#nav-link-home{
+  text-decoration:none;
+  color:white;
+}
+#nav-link-sobre{
+  text-decoration:none;
+  color:white;
+}
+#nav-link-valores{
+  text-decoration:none;
+  color:white;
+}
+/*Carousel Style*/
+#carousel-description{
+  background-color: rgba(0,0,0,0.5);
+  backdrop-filter: blur(20px);
+  border-top:0.5px rgba(255,255,255,0.2) solid;
+  border-bottom:0.5px rgba(255,255,255,0.2) solid;
+  color:white;
+  padding: 5%;
+  padding-top:3%;
+  padding-bottom: 3%;
+  display: flex;
+  margin-bottom: 2%;
+  width:45%;
+  border-radius: 20px;
+  margin-left: -10%;
+}
+
+.carousel-title{
+  color:white;
+  padding-bottom:4%;
+  margin-bottom:7%;
+  border-bottom:1px #00694b solid; 
+  text-align:center;
+}
+.carousel-sub-description{  
+  color: rgba(255,255,255,0.7);
+}
+.carousel-sub-p{
+  padding-left:2%;
+  text-align:center;
+}
+#carousel-button{
+  align-self: flex-start;
+  border-radius: 20px;
+  padding:1%;
+  margin-top: 3%;
+  margin-bottom: 3%;
+  align-self: center;
+}
+
+#carousel-input-group{
+  text-align:center;
+}
+.carousel-icon-div{
+  width: 100%;
+}
+.carousel-icons{
+  width:8%;
+  margin-inline: 5%;
+  margin-top: 3%;
+  margin-bottom: 7%;
+}
+/*Agile Development*/
+.agile{
+  padding:5%;
+  margin-top:2.5%;
+}
+#agile-slider{
+  width:50%;
+  align-self: center;
+}
+.agile-title{
+  text-align: center;
+}
+.agile-sub-title{
+  text-align: center;
+  margin-bottom: 5%;
+}
+.agile-text{
+  text-align: justify;
+}
+
+/*Section style*/
+
+.section{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  padding:5%;
+  padding-top:7%;
+  justify-content: space-around;
+}
+
+.section-content{
+  margin-inline: 2%;
+  width: 30%;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.section-title{
+  text-align: center;
+  margin-top: 4%;
+  margin-bottom: 5%;
+  font-family: 'Century Gothic';
+  font-weight: 650;
+  font-family: Imported;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+
+/*Information style*/
+.information{
+  margin-top: 5%;
+  margin-bottom: 10%;
+  padding:3%;
+  padding-bottom: 5%;
+  text-align: center;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+.information-content{
+  display:flex;
+  flex-direction: row;
+  margin-inline:5%;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content: space-around;
 }
 
-.App-link {
-  color: #61dafb;
+.information-card{
+  text-align: center;
+  width:75%;
+  margin-inline:3%;
+  background-color: whitesmoke;
+  box-shadow: 7px 7px 10px rgb(212, 212, 212);  padding:0.5%;
+  padding-bottom: 3%;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.information-gif{
+  width:100%;
+  padding:5%;
+  margin-bottom: 3%;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+.information-card-description{
+  color:rgba(0,0,0,0.7);
+  padding:2%;
+}
+
+.information-image{
+  width:40%;
+  border-radius: 10px;
+  margin-bottom: 8%;
+}
+
+/*slider style*/
+.slider{
+  padding:5%;
+}
+.slide-title{
+  text-align: center;
+}
+.img-slider{
+  width:60%;
+  margin: auto;
+}
+
+/*Companies*/
+.companies{
+  width: 100%;
+  display: flex;
+  padding-top: 3%;
+  background: whitesmoke;
+  box-shadow: 7px 3px 15px #012a1e;
+  text-align: center;
+  margin-bottom: 5%;
+  justify-content: space-around;
+  flex-direction: column;
+}
+.companies-image{
+  display:flex;
+  flex-wrap: wrap;
+  width:50%;
+  background-color: whitesmoke;
+}
+.companies-img{
+  margin:5%;
+  width:15%;
+  border-radius: 10px;
+}
+.companies-information{
+  padding-right: 5%;
+  width:100%;
+}
+.companies-title{
+  color:black;
+  font-weight: bold;
+}
+.companies-subtitle{
+  color:rgba(0, 0, 0, 0.6);
+}
+.companies-text{
+  text-align: justify;
+  color:rgba(0, 0, 0, 0.95);
+}
+
+/*Contact style*/
+
+#contact{
+  margin-top:5%;
+  margin-bottom:10%;
+}
+
+.contact-content{
+  display: flex;
+  flex-direction: row;
+  padding:1%;
+  text-align: center;
+}
+
+.content-social{
+  width:50%;
+}
+
+#content-social-message{
+  width:50%;
+  margin-right:3%;
+}
+
+.contact-icons{
+  margin-top: 5%;
+  margin-inline: 5%;
+  width:5%;
+}
+
+#btnSendMessage{
+  align-self: auto;
+}
+
+/*Enterprise information*/
+
+.enterprise{
+  margin-top:10%;
+  margin-bottom:10%;
+  padding: 2%;
+}
+.enterprise-title{
+  padding-bottom: 5%;
+}
+#enterprise-text{
+  text-align: center;
+  padding: 5%;
+}
+
+/*news*/
+#news{
+  padding:5%;
+  margin-top: 10%;
+}
+#news-card-information{
+  margin-bottom: 7%;
+  border: 2px solid rgb(227, 227, 227);
+  padding: 0%;
+  background-color: whitesmoke;
+  box-shadow: 3px 3px 10px whitesmoke;
+}
+#news-img{
+  width:100%;
+}
+#content-news{
+  text-align: center;
+  width:100%;
+}
+.card-text{
+  padding-top: 4%;
+}
+/*Estilo Login*/
+.login{
+  margin-top: 6%;
+  align-content: center;
+  background-image: linear-gradient( to right, black 7%, white ); 
+}
+#login-logo{
+  color:white;
+  padding: 15%;
+}
+#logo-login-div{
+  text-align: center;
+}
+#tamarin-login{
+  margin-bottom: 7%;
+}
+#login-input{
+  align-items: center;
+  text-align: center;
+  padding: 15%;
+  background-repeat: no-repeat;
+}
+.create-account{
+  margin-top:5%;
+}
+/*Footer style*/
+#footer-style{
+  background-color: black;
+  color:white;
+  padding:3%;
+}
+
+.container{
+  margin-left: -1%;
+  display:grid;
+  height:100vh;
+  width:100%;
+  grid-template-columns: 0.8fr repeat(3, 1fr);
+  grid-template-rows: 0.2fr 3fr;
+  grid-template-areas: 'sidebar nav nav nav'
+  'sidebar main main';
 }

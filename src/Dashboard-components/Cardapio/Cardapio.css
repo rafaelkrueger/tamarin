@@ -1,0 +1,32 @@
+#cardapio{
+    padding-top:20%;
+    padding-left:20%;
+    padding-right:20%;
+    margin-right:-280%;
+    margin-top: 20%;
+}
+.input-buttons{
+    display: flex;
+    margin-inline: 7%;
+}
+#insert-button{
+    margin-left:25%;
+}
+
+#insert-category{
+    border-left: 0.5px rgba(0,0,0,0.4) solid;
+}
+#row-cardapio{
+    align-self: center;
+    text-align: center;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    border-radius: 10px;
+    padding:2%;
+    border: 0.5px solid rgba(0,0,0,0.3);
+}
+
+#product-desc-col{
+    background-color: whitesmoke;
+    padding:2%;
+}
