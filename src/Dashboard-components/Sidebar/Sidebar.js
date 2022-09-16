@@ -26,38 +26,38 @@ function Sidebar({params,empresa, sidebarOpen, closeSidebar, setDashboard}) {
             <div className='sidebar__link'>
                 <Link to={`/admin/${params}`} onClick={(e)=>{
                     e.preventDefault()
-                    setDashboard(2)
-                }}><BiFoodMenu color="white" className="icons-style" />Cardápio</Link>               
+                    setDashboard(1)
+                }}><BiFoodMenu color="white" className="icons-style" />Produtos</Link>               
             </div>
             <div className='sidebar__link'>
                 <Link to={`/admin/${params}`} onClick={(e)=>{
                     e.preventDefault()
-                    setDashboard(3)
+                    setDashboard(2)
                 }}><MdOutlineFastfood color="white" className="icons-style"/>Pedidos</Link>               
             </div>
             <div className='sidebar__link'>
                 <Link to={`/admin/${params}`} onClick={(e)=>{
                     e.preventDefault()
-                    setDashboard(4)
+                    setDashboard(3)
                 }}><AiOutlineMessage color="white" className="icons-style"/>Mensagens</Link>               
             </div>
             <div className='sidebar__link'>
                 <Link to={`/admin/${params}`} onClick={(e)=>{
                     e.preventDefault()
-                    setDashboard(5)
+                    setDashboard(4)
                 }}><BiMoney color="white" className="icons-style" />Orçamento</Link>               
             </div>
             <h2>Plataforma</h2>
             <div className='sidebar__link'>
                 <Link to={`/admin/${params}`} onClick={(e)=>{
                     e.preventDefault()
-                    setDashboard(6)
+                    setDashboard(5)
                 }}><BiUser color="white" className="icons-style"/>Usuários</Link>               
             </div>
             <div className='sidebar__link'>
                 <Link to={`/admin/${params}`} onClick={(e)=>{
                     e.preventDefault()
-                    setDashboard(7)
+                    setDashboard(6)
                 }}>Política de Privacidade</Link>               
             </div>
             <hr/>

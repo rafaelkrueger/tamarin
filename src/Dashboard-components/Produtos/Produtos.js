@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
-import './Cardapio.css'
+import './Produtos.css'
 import Api from '../../Api'
 import FileBase64 from 'react-file-base64'
 
-function Cardapio({empresa}) {
+function Produtos({empresa}) {
 
   const [category, setCategory] = useState("")
 
@@ -39,57 +39,68 @@ function Cardapio({empresa}) {
     <div id='cardapio' className='row' >
     <div>
 
-      <h2 style={{textAlign:"center", borderBottom:"0.5px black solid", marginInline:"20%", paddingBottom:"0.5%"}}>{empresa.name} - esse é seu cardapio!</h2>
+      <h2 style={{textAlign:"center", borderBottom:"0.5px black solid", marginInline:"20%", paddingBottom:"0.5%"}}>{empresa == undefined?'':empresa.name} - esses são seus produtos!</h2>
           <div className="row" style={{marginBottom:"10%", marginTop:"10%", width:"100%",}}>    
-          {empresa.categorias.map((val)=>{
+          {empresa == undefined?'':empresa.categorias.map((val)=>{
             return(
+              <table class="table table-dark" id="table-users" style={{marginBottom:"10%"}}>
+              <thead class="thead-dark">
+                <tr>
+                <th className='row-table' scope="col">Produto</th>
+                <th className='row-table' scope="col">Categoria</th>
+                <th className='row-table' scope="col">Valor</th>
+                <th className='row-table' scope="col">DELETAR</th>
+                </tr>
+            </thead>
+            <tbody>
+
               <>
-              <h1>{val}</h1>
-              {empresa.cardapio.filter((list)=>{
-                return list.category.includes(val)
-              }).map((list, key)=>{
-                return(
-                  <>
-                  <div className="row" id="row-cardapio">
-                    <div className="col">
-                      <img style={{width:"100%"}} src={list.image}/>
-                    </div>
-                    <div className="col" id="product-desc-col">
-                      <h3>{list.product}</h3>
-                      <p>{list.description}</p>   
-                      <hr/>
-                      <h5>R${list.value}</h5>  
-                      <button onClick={()=>{
-                        Api.post(`https://tamarintec.herokuapp.com/delete-produto`, {
-                        empresa:empresa._id,
-                        nomeProduto:list.product
-                      })
-                      .then((res)=>{
-                        console.log(res.data)
-                      })
-                      .catch((err)=>{
-                        console.log(err)
-                      })                        
-                      }} className="btn btn-danger">DELETAR PRODUTO</button>                 
-                    </div>
-                  </div> 
-                  </>
-                )
-              })}      
-            </>
-          )})}
+             {empresa.produto.filter((list)=>{
+              return list.category.includes(val)
+            }).map((list, key)=>{
+              return(
+                <>
+                <tr>
+            <td>{list.product}</td>
+            <td>{list.category}</td>
+            <td>{list.value}</td>
+            <td>
+            <button onClick={()=>{
+                Api.post(`https://tamarintec.herokuapp.com/delete-produto`, {
+                empresa:empresa._id,
+                nomeProduto:list.product
+              })
+              .then((res)=>{
+                console.log(res.data)
+              })
+              .catch((err)=>{
+                console.log(err)
+              })                        
+              }} className="btn btn-danger">DELETAR PRODUTO</button>
+            </td>
+            </tr>
+
+                </>
+              )
+            })} 
+            </>           
+          </tbody>
+          </table>
+            )
+          })}
       </div>
     </div>
     <div className='col' id="insert-col">
       <h2>INSIRA UM PRODUTO</h2>
-      <img src={newProduct.image == ""?'':newProduct.image} style={{width:"30%", height:"25%",marginBottom:"5%", borderRadius:10}} />
+      <img src={newProduct.image == ""?'':newProduct.image} style={{width:"30%", height:"25%",marginBottom:"10%", borderRadius:10}} />
       <br/>
       <div class="input-group mb-3">
           <input name="testImage" onChange={async (e)=>{
-            console.log(e.target.files[0])
-              const file = e.target.files[0]
-              const base64 = await convertBase64(file)
-              setnewProduct({...newProduct, image:base64})                   
+            const fileReader = new FileReader()
+            const file = e.target.files[0]
+            const base64 = await convertBase64(file)
+            setnewProduct({...newProduct, image:base64})    
+            console.log(newProduct.image)               
           }} type="file" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"/>
       </div>
       <br/>
@@ -121,7 +132,7 @@ function Cardapio({empresa}) {
         <br/>
         <div className='input-buttons'>
           <select className="select-category" onChange={(e)=>{setnewProduct({...newProduct, category:e.target.value})}}>
-          {empresa.categorias.map((list)=>{
+          {empresa == undefined?'':empresa.categorias.map((list)=>{
             return(
               <>
               <option value={list}>{list}</option>
@@ -130,21 +141,20 @@ function Cardapio({empresa}) {
           </select>
 
         <button onClick={(e)=>{
-          console.log(newProduct.image)
+          console.log(newProduct)
           Api.post(`https://tamarintec.herokuapp.com/set-produto`, {
            empresa:empresa._id,
            product:newProduct.product, 
            description:newProduct.description, 
            category:newProduct.category, 
            value:newProduct.value,
-           image:"rafael" 
+           image:newProduct.image
            })
               .then((res)=>{
                 console.log(res.data)
               })
               .catch((err)=>{
-                console.log(err)
-                
+                console.log(err.message)
               })
           }} id="insert-button" className="btn btn-success">INSERIR PRODUTO</button>
         </div>
@@ -208,4 +218,4 @@ function Cardapio({empresa}) {
   )
 }
 
-export default Cardapio
+export default Produtos

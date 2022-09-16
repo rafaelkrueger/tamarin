@@ -17,16 +17,6 @@ import Login from './Components/Login'
 
 function App() {
 
-  const [sidebarOpen, setSidebarOpen] = useState(false)
-    
-  const openSidebar = () =>{
-      setSidebarOpen(true)
-  }
-
-  const closeSidebar = () =>{
-      setSidebarOpen(false)
-  }
-
   return (
     <>
     <div>
@@ -36,7 +26,7 @@ function App() {
           <Route path="/tamarin" element={<Admin/>}/>
 
           {/*UX COMPONENTS*/}
-          <Route path="/admin/:id" element={<Dashboard sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} openSidebar={openSidebar} closeSidebar={closeSidebar}/>}/>
+          <Route path="/admin/:id" element={<Dashboard/>}/>
 
           <Route path="/" element={<Home/>}/>
           <Route path="/nosso-servico" element={<Services/>}/>
