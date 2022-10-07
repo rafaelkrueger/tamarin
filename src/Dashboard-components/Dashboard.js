@@ -38,9 +38,9 @@ function Dashboard() {
 
     return (  
       <>
-        <NavbarDashboard empresa={empresa}/>
+        <NavbarDashboard empresa={empresa} sidebarOpen={sidebarOpen} openSidebar={openSidebar} closeSidebar={closeSidebar}/>
         <div className="row">
-          <Sidebar params={params} empresa={empresa} sidebarOpen={sidebarOpen} closeSidebar={closeSidebar} setDashboard={setDashboard} />
+          <Sidebar params={params} empresa={empresa} sidebarOpen={sidebarOpen} openSidebar={openSidebar} closeSidebar={closeSidebar} setDashboard={setDashboard} />
           {dashboard === 0?<Main empresa={empresa}/>: 0}
           {dashboard === 1?<Produtos empresa={empresa}/>: 0}
           {dashboard === 2?<Pedidos empresa={empresa}/>: 0}

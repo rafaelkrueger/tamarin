@@ -18,7 +18,7 @@ function NavbarDashboard({params,empresa, sidebarOpen, closeSidebar, openSidebar
         </div>
         <div className='navbar__right'>
 
-            <a href="/">
+            <a>
                 <img src={empresa == undefined?"...":empresa.logo} width="30" style={{borderRadius:20}} />
             </a>
 

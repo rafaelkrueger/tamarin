@@ -98,15 +98,22 @@
 }
 
 .sidebar-responsive{
-    display:inline !important;
-    z-index: 0000 !important;
+    display:flex !important;
+    z-index: 3000 !important;
     left:0 !important;
-    position:absolute;
+    display: none;
+    visibility: hidden;
 }
 
 @media only screen and (max-width:700px){
     #sidebar{
-        display:none;
+        display:flex;
+        flex-direction: column;
+        width:100%;
+        min-height: 100%;
+        margin-top:10.5%;
+        z-index: 100000000;
+        position: fixed;    
     }
     .sidebar__title{
         display: inline;

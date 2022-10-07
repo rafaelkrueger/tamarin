@@ -103,7 +103,7 @@ function Admin() {
 
             <button onClick={(e)=>{
                 e.preventDefault()
-                Api.post("https://tamarintec.herokuapp.com/set-user", {name:newUser.name, email:newUser.email, password:newUser.password, number:newUser.number, site:newUser.site, user:newUser.usuario  })
+                Api.post("https://tamarintec.herokuapp.com/set-user", { name:newUser.name, email:newUser.email, password:newUser.password, number:newUser.number, site:newUser.site, user:newUser.usuario, logo:newUser.logo })
                   .then(()=>{
                     console.log(newUser)
                   })

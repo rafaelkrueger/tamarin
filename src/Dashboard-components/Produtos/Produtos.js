@@ -37,62 +37,9 @@ function Produtos({empresa}) {
 
   return (
     <div id='cardapio' className='row' >
-    <div>
-
-      <h2 style={{textAlign:"center", borderBottom:"0.5px black solid", marginInline:"20%", paddingBottom:"0.5%"}}>{empresa == undefined?'':empresa.name} - esses são seus produtos!</h2>
-          <div className="row" style={{marginBottom:"10%", marginTop:"10%", width:"100%",}}>    
-          {empresa == undefined?'':empresa.categorias.map((val)=>{
-            return(
-              <table class="table table-dark" id="table-users" style={{marginBottom:"10%"}}>
-              <thead class="thead-dark">
-                <tr>
-                <th className='row-table' scope="col">Produto</th>
-                <th className='row-table' scope="col">Categoria</th>
-                <th className='row-table' scope="col">Valor</th>
-                <th className='row-table' scope="col">DELETAR</th>
-                </tr>
-            </thead>
-            <tbody>
-
-              <>
-             {empresa.produto.filter((list)=>{
-              return list.category.includes(val)
-            }).map((list, key)=>{
-              return(
-                <>
-                <tr>
-            <td>{list.product}</td>
-            <td>{list.category}</td>
-            <td>{list.value}</td>
-            <td>
-            <button onClick={()=>{
-                Api.post(`https://tamarintec.herokuapp.com/delete-produto`, {
-                empresa:empresa._id,
-                nomeProduto:list.product
-              })
-              .then((res)=>{
-                console.log(res.data)
-              })
-              .catch((err)=>{
-                console.log(err)
-              })                        
-              }} className="btn btn-danger">DELETAR PRODUTO</button>
-            </td>
-            </tr>
-
-                </>
-              )
-            })} 
-            </>           
-          </tbody>
-          </table>
-            )
-          })}
-      </div>
-    </div>
     <div className='col' id="insert-col">
       <h2>INSIRA UM PRODUTO</h2>
-      <img src={newProduct.image == ""?'':newProduct.image} style={{width:"30%", height:"25%",marginBottom:"10%", borderRadius:10}} />
+      <img src={newProduct.image == ""?'':newProduct.image} style={{width:"30%", height:"20%",marginBottom:"10%", borderRadius:10}} />
       <br/>
       <div class="input-group mb-3">
           <input name="testImage" onChange={async (e)=>{
@@ -183,7 +130,7 @@ function Produtos({empresa}) {
               </div>
         <div>
             <h4 className='category-delete'>Suas Categorias:</h4>
-                  <table className="table">
+                  <table className="table table-secondary" id="category-table">
                     <tbody>
                   {empresa == undefined? '':
                     empresa.categorias.map((list, key)=>{
@@ -213,6 +160,58 @@ function Produtos({empresa}) {
           </table>
         </div>
         </div>
+        <div>
+
+<h2 style={{marginTop:"10%",textAlign:"center", borderBottom:"0.5px black solid", marginInline:"20%", paddingBottom:"0.5%"}}>{empresa == undefined?'':empresa.name} - esses são seus produtos!</h2>
+    <div className="row" style={{marginBottom:"10%", marginTop:"10%", width:"100%",}}>    
+    {empresa == undefined || empresa.produto.length == 0?<div><h3 style={{textAlign:"center", color:"rgba(0,0,0,0.4)"}}>Insira um Produto para começarmos!</h3></div>:empresa.categorias.map((val)=>{
+      return(
+        <table class="table table-dark" id="table-users" style={{marginBottom:"10%"}}>
+        <thead class="thead-dark">
+          <tr>
+          <th className='row-table' scope="col">Produto</th>
+          <th className='row-table' scope="col">Categoria</th>
+          <th className='row-table' scope="col">Valor</th>
+          <th className='row-table' scope="col">DELETAR</th>
+          </tr>
+      </thead>
+      <tbody>
+        <>
+        {empresa.produto.filter((list)=>{
+          return list.category.includes(val)
+        }).map((list, key)=>{
+          return(
+            <>
+            <tr>
+        <td>{list.product}</td>
+        <td>{list.category}</td>
+        <td>{list.value}</td>
+        <td>
+        <button onClick={()=>{
+            Api.post(`https://tamarintec.herokuapp.com/delete-produto`, {
+            empresa:empresa._id,
+            nomeProduto:list.product
+          })
+          .then((res)=>{
+            console.log(res.data)
+          })
+          .catch((err)=>{
+            console.log(err)
+          })                        
+          }} className="btn btn-danger">DELETAR PRODUTO</button>
+        </td>
+        </tr>
+
+            </>
+          )
+        })} 
+        </>           
+      </tbody>
+      </table>
+        )
+      })}
+  </div>
+  </div>
 
     </div>
   )

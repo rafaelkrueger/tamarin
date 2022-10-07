@@ -28,6 +28,7 @@ function App() {
           {/*UX COMPONENTS*/}
           <Route path="/admin/:id" element={<Dashboard/>}/>
 
+          <Route path="*" element={<Home/>}/>
           <Route path="/" element={<Home/>}/>
           <Route path="/nosso-servico" element={<Services/>}/>
           <Route path="/sobre-nos" element={<About/>}/>

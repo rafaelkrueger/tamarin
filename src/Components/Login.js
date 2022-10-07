@@ -48,7 +48,7 @@ function Login() {
                 </div>
                 <button onClick={(e)=>{
                 e.preventDefault()
-                Api.post("https://tamarintec.herokuapp.com/get-user", {email:userLogin.user})
+                Api.post("https://tamarintec.herokuapp.com/get-user", {email:userLogin.user, password:userLogin.password})
                   .then((res)=>{
                     console.log(res.data)
                     navigate(`/admin/` + res.data[0]._id)

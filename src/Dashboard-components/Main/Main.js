@@ -137,10 +137,11 @@ function Main({empresa}) {
                     <CircularProgressbar value={70} text={"70%"} strokeWidth={3}/>
                 </div>
                 <p>graphic</p>
-                <h3>R$420</h3>
-                <p id='main-graphic-subtitle'>Seu lucro bruto obtido é de R$420</p>
+                <h3>R$</h3>
+                <p id='main-graphic-subtitle'>Seu lucro bruto obtido é de R$</p>
             </div>
             <div className="col" id="main-graphic-2">
+            <h3 id="main-graphic-title" style={{textAlign:"center", marginTop:"-3.5%", marginBottom:"3.5%"}}>INFORMAÇÕES MENSAIS</h3>
             <AreaChart width={730} height={250} data={data}
             margin={{ top: 10, right: 30, left: 0, bottom: 0 }}>
             <defs>
