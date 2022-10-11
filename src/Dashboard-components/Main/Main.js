@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import './Main.css'
 import 'react-circular-progressbar/dist/styles.css';
 import { CircularProgressbar } from "react-circular-progressbar"
@@ -92,6 +92,7 @@ function Main({empresa}) {
         }
       ];
           
+      const [screen, setScreen] = useState(window.outerWidth)
 
     return (
     <>
@@ -104,7 +105,7 @@ function Main({empresa}) {
                     <h3 className="main-card-h3">{empresa == undefined?'':empresa.produto.length}</h3>
                     <p id="main-card-p">Ver todos Produtos</p>
                     </div>
-                    <div className='col'>
+                    <div className='col' id="pie-chart-main">
                     <PieChart width={430} height={100} id="pie-chart">
                     <Pie data={data01} dataKey="value" nameKey="name" cx="50%" cy="50%" outerRadius={50} fill="#3ea175" />
                     </PieChart>                    
@@ -120,7 +121,7 @@ function Main({empresa}) {
                     <h3 className="main-card-h3">{empresa == undefined?'':empresa.pedidos.length}</h3>
                     <p id="main-card-p">Ver todos Pedidos</p>
                     </div>
-                    <div className='col'>
+                    <div className='col' id="pie-chart-main">
                     <PieChart width={430} height={100} id="pie-chart">
                     <Pie data={data01} dataKey="value" nameKey="name" cx="50%" cy="50%" outerRadius={50} fill="#3ea175" />
                     </PieChart>                    
@@ -142,7 +143,7 @@ function Main({empresa}) {
             </div>
             <div className="col" id="main-graphic-2">
             <h3 id="main-graphic-title" style={{textAlign:"center", marginTop:"-3.5%", marginBottom:"3.5%"}}>INFORMAÇÕES MENSAIS</h3>
-            <AreaChart width={730} height={250} data={data}
+            <AreaChart width={screen > 600?730:230} height={250} data={data}
             margin={{ top: 10, right: 30, left: 0, bottom: 0 }}>
             <defs>
                 <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">

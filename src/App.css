@@ -25,6 +25,8 @@ body::-webkit-scrollbar-thumb{
   #agile-section{
     display: flex;
     flex-direction: column;
+    margin-top: 20%;
+    margin-bottom: 10%;
   }
   #agile-slider{
     width: 100%;
@@ -66,6 +68,18 @@ body::-webkit-scrollbar-thumb{
   .information-card-description{
     font-size: 7pt;
   }
+
+  /*login responsive*/
+
+  #login-content{
+    display: flex;
+    flex-direction: column;
+  }
+
+  #logo-login{
+    margin-top: 25%;
+    margin-bottom: -13%;
+  }
   
   /*footer responsive style*/
   #footer-style{
@@ -94,6 +108,16 @@ body::-webkit-scrollbar-thumb{
   width:100%;
   z-index: 3;
   padding: 2%;
+}
+
+#navbar-content-responsive{
+  display: block;
+  background-color: black;
+  width: 100%;
+  padding-left: 10%;
+  padding-right: 20%;
+  margin-left: -7%;
+  margin-right: -10%;
 }
 
 .nav-link{
@@ -292,9 +316,9 @@ body::-webkit-scrollbar-thumb{
   display: flex;
   padding-top: 3%;
   background: whitesmoke;
-  box-shadow: 7px 3px 15px #012a1e;
+  box-shadow: 1px 1px 15px #012a1e;
   text-align: center;
-  margin-bottom: 5%;
+  margin-bottom: 25%;
   justify-content: space-around;
   flex-direction: column;
 }

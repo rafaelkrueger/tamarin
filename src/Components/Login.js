@@ -25,10 +25,10 @@ function Login() {
     <>
     <Navbar/>
     <div className="login">
-        <div className='row'>
+        <div className='row' id="login-content">
             <div className='col' id="login-logo">
                 <div id="logo-login-div">
-                    <h2>LOGO</h2>
+                    <h2 id="logo-login">LOGO</h2>
                 </div>
             </div>
             <div className='col' id="login-input">
@@ -57,8 +57,7 @@ function Login() {
                     console.log(err.message)
                   })                    
               }} className='btn btn-large btn-secondary'>Entrar</button>
-                </div>
-                <p className='create-account'>Criar Sua Conta</p>                
+                </div>            
             </div>
         </div>
     </div>

@@ -39,7 +39,7 @@ function Produtos({empresa}) {
     <div id='cardapio' className='row' >
     <div className='col' id="insert-col">
       <h2>INSIRA UM PRODUTO</h2>
-      <img src={newProduct.image == ""?'':newProduct.image} style={{width:"30%", height:"20%",marginBottom:"10%", borderRadius:10}} />
+      <img src={newProduct.image == ""?'':newProduct.image} style={{width:"20%", height:"5%",marginBottom:"10%", borderRadius:10}} />
       <br/>
       <div class="input-group mb-3">
           <input name="testImage" onChange={async (e)=>{
@@ -79,6 +79,7 @@ function Produtos({empresa}) {
         <br/>
         <div className='input-buttons'>
           <select className="select-category" onChange={(e)=>{setnewProduct({...newProduct, category:e.target.value})}}>
+          <option value="">Categoria</option>
           {empresa == undefined?'':empresa.categorias.map((list)=>{
             return(
               <>
@@ -86,7 +87,6 @@ function Produtos({empresa}) {
               </>
             )})}          
           </select>
-
         <button onClick={(e)=>{
           console.log(newProduct)
           Api.post(`https://tamarintec.herokuapp.com/set-produto`, {
