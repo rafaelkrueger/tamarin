@@ -1,0 +1,34 @@
+.admin{
+    padding-top: 10%;
+    padding-bottom: 7%;
+    padding-left: 2%;
+}
+
+#admin-input-group{
+
+    margin: auto;
+}
+#table-users{
+    margin-top: 0%;
+    margin-right: 20%;
+    background-color: whitesmoke;
+    text-align: center;
+}
+
+#insert-col{
+    padding:2%;
+}
+
+
+#insert-category{
+    padding:2%;
+}
+
+.row-table{
+    width:20%;
+}
+
+.category-delete{
+    margin-bottom: 10%;
+    margin-top: 10%;
+}

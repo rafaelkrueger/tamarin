@@ -1,0 +1,87 @@
+#cardapio {
+  padding-top: 5%;
+  padding-left: 25%;
+  padding-right: 10%;
+  padding-bottom: 15%;
+  margin-bottom: 5%;
+  height: 20%;
+}
+
+#insert-col {
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  height: 30%;
+  text-align: center;
+  border-right: 0.5px rgb(221, 221, 221) solid;
+}
+
+#insert-category {
+  text-align: center;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  padding-top: 20%;
+  margin-bottom: 10%;
+  height: 30%;
+}
+.category-text {
+  color: rgba(0, 0, 0, 0.7);
+}
+
+#category-insert-list {
+  margin-top: -33%;
+}
+
+.input-buttons {
+  display: flex;
+  margin-inline: 7%;
+}
+#insert-button {
+  margin-left: 25%;
+}
+
+#row-cardapio {
+  align-self: center;
+  text-align: center;
+  margin-top: 2%;
+  margin-bottom: 2%;
+  border-radius: 10px;
+  padding: 2%;
+  border: 0.5px solid rgba(0, 0, 0, 0.3);
+}
+
+#category-table {
+  border-radius: 10px;
+}
+
+@media only screen and (max-width: 700px) {
+  #cardapio {
+    margin-top: 30%;
+    width: 100%;
+  }
+  #insert-col {
+    height: 12%;
+    margin-bottom: 10%;
+    padding: 7%;
+    margin-left: -6%;
+    margin-bottom: 10%;
+    border-bottom: 0.5px black solid;
+    border-radius: 0px;
+  }
+  #insert-category {
+    margin-top: 20%;
+    height: 10%;
+    padding: 7%;
+  }
+  .input-buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+  #insert-button {
+    margin-top: 12%;
+    margin-right: 16%;
+  }
+  #table-users {
+    margin-left: -12%;
+  }
+}
