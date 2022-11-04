@@ -56,3 +56,24 @@
   margin-top: 1%;
   width: 90%;
 }
+
+@media only screen and (max-width: 700px) {
+  .modal{
+    width: 100%;
+    left:0%
+  }
+  .modal-produto-content{
+    width: 100%;
+    margin-top: 50%;
+    margin-left: -15%;
+    align-content: center;
+  }
+  #modal-info-text{
+    font-size: 8.5pt;
+  }
+  .cards-main-component{
+    align-self: center;
+    margin-top: 20%;
+  }
+}
+

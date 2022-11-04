@@ -32,7 +32,7 @@
 
 #main-card-p {
   font-size: 10pt;
-  color: rgba(255, 255, 255);
+  color: rgba(0, 0, 0,0.3);
   padding-bottom: 1%;
   margin-bottom: -1%;
   margin-right: 46%;
@@ -50,7 +50,6 @@
 }
 
 #main-graphic-1 {
-  background-color: white;
   text-align: center;
   box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.5);
   padding: 3%;
@@ -83,8 +82,12 @@
   .card-main-content {
     margin-top: 20%;
   }
+
   #pie-chart-main {
     visibility: hidden;
+  }
+  .main-card-p{
+    text-align: center;
   }
   #main-graphics {
     display: flex;

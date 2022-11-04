@@ -1,19 +1,24 @@
 .pedidos {
-  padding-top: 10%;
+  padding-top: 6%;
   padding-left: 25%;
   padding-right: 20%;
   background-color: white;
 }
 
 .pedidos-title {
-  color: rgba(255, 255, 255);
+  color: #252525;
   font-weight: 530;
+}
+
+.pedidos-empty{
+
 }
 
 .pedidos-wrap {
   display: flex;
   flex-wrap: wrap;
 }
+
 
 #card-id {
   border: 0px whitesmoke solid;
@@ -60,6 +65,13 @@
 }
 
 @media only screen and (max-width: 455px) {
+  .pedidos{
+    padding-left: 22%;
+  }
+  .pedidos-title{
+    margin-top: 26%;
+    width: 100%;
+  }
   #card-id {
     width: 100%;
   }

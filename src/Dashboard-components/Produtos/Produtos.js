@@ -13,6 +13,11 @@ function Produtos({ empresa }) {
     visibility: "hidden",
     display: "none",
   });
+  const [insertText, setinsertText] = useState({
+    visibility: "visible",
+    display: "block",
+  });
+
   const [modalContent, setmodalContent] = useState({
     image: "",
     product: "",
@@ -135,6 +140,10 @@ function Produtos({ empresa }) {
           </select>
           <button
             onClick={(e) => {
+              setinsertText({
+                display: "none",
+                visibility: "hidden",
+              });
               setinsertLoad({
                 display: "block",
                 visibility: "visible",
@@ -150,12 +159,24 @@ function Produtos({ empresa }) {
                 .then((res) => {
                   console.log(res.data);
                   setinsertLoad({
-                    visibility: "hidden",
                     display: "none",
+                    visibility: "hidden",
+                  });
+                  setinsertText({
+                    display: "block",
+                    visibility: "visible",
                   });
                 })
                 .catch((err) => {
                   console.log(err.message);
+                  setinsertLoad({
+                    display: "none",
+                    visibility: "hidden",
+                  });
+                  setinsertText({
+                    display: "block",
+                    visibility: "visible",
+                  });
                 });
             }}
             id="insert-button"
@@ -163,9 +184,8 @@ function Produtos({ empresa }) {
           >
             <p
               style={{
-                display: insertLoad.display == "none" ? "block" : "none",
-                visibility:
-                  insertLoad.visibility == "hidden" ? "visible" : "hidden",
+                display: insertText.display,
+                visibility: insertText.visibility,
               }}
             >
               Inserir Produto
@@ -202,7 +222,6 @@ function Produtos({ empresa }) {
           <button
             className="btn btn-success"
             onClick={() => {
-              console.log(category);
               Api.post(`https://tamarintec.herokuapp.com/set-categoria`, {
                 empresa: empresa._id,
                 category: category,
@@ -270,6 +289,7 @@ function Produtos({ empresa }) {
             marginInline: "20%",
             paddingBottom: "0.5%",
           }}
+          id="table-products-title"
         >
           {empresa == undefined ? "" : empresa.name} - esses são seus produtos!
         </h2>
@@ -285,7 +305,10 @@ function Produtos({ empresa }) {
         >
           {empresa == undefined || empresa.produto.length == 0 ? (
             <div>
-              <h3 style={{ textAlign: "center", color: "rgba(0,0,0,0.4)" }}>
+              <h3
+                id="table-products-title-category"
+                style={{ textAlign: "center", color: "rgba(0,0,0,0.4)" }}
+              >
                 Insira um Produto para começarmos!
               </h3>
             </div>
@@ -343,7 +366,6 @@ function Produtos({ empresa }) {
                                   <td>
                                     <button
                                       onClick={() => {
-                                        setModal("hidden");
                                         Api.post(
                                           `https://tamarintec.herokuapp.com/delete-produto`,
                                           {
@@ -357,6 +379,7 @@ function Produtos({ empresa }) {
                                           .catch((err) => {
                                             console.log(err);
                                           });
+                                        setModal("hidden");
                                       }}
                                       className="btn btn-danger"
                                     >
