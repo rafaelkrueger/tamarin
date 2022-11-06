@@ -1,11 +1,9 @@
 #sidebar {
   background-color: #020509;
   padding: 40px;
-  -webkit-transition: all 0.5;
-  transition: all 0.5s;
+  transition: ease-in-out 0.25s;
   width: 20%;
   min-height: 100%;
-  margin-top: 3%;
   z-index: 2000;
   position: fixed;
 }
@@ -110,9 +108,10 @@
     flex-direction: column;
     width: 100%;
     min-height: 100%;
-    margin-top: 14.5%;
+    margin-top: 10.5%;
     z-index: 100000000;
     position: fixed;
+    margin-left: 2%;
   }
   .sidebar__title {
     display: inline;

@@ -6,6 +6,7 @@ import Logo from "../Icons/computer.png";
 
 function Navbar() {
   const [screen, setScreen] = useState(window.outerWidth);
+  const [screen2, setScreen2] = useState(window.outerHeight);
   const [navbar, setNavbar] = useState("");
 
   return (

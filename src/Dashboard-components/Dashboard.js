@@ -49,6 +49,7 @@ function Dashboard() {
           params={params}
           empresa={empresa}
           sidebarOpen={sidebarOpen}
+          setSidebarOpen={setSidebarOpen}
           openSidebar={openSidebar}
           closeSidebar={closeSidebar}
           setDashboard={setDashboard}

@@ -6,7 +6,14 @@ import { AiOutlineMessage, AiOutlineMenu } from "react-icons/ai";
 import { CgWebsite } from "react-icons/cg";
 import { Link } from "react-router-dom";
 
-function Sidebar({ params, empresa, sidebarOpen, closeSidebar, setDashboard }) {
+function Sidebar({
+  params,
+  empresa,
+  setSidebarOpen,
+  sidebarOpen,
+  closeSidebar,
+  setDashboard,
+}) {
   return (
     <div className={sidebarOpen ? "sidebar-responsive" : ""} id="sidebar">
       <div className="sidebar__title">
@@ -21,8 +28,10 @@ function Sidebar({ params, empresa, sidebarOpen, closeSidebar, setDashboard }) {
             href={`/admin/${params}`}
             onClick={(e) => {
               e.preventDefault();
+              if (window.outerWidth < 600) {
+                setSidebarOpen(!sidebarOpen);
+              }
               setDashboard(0);
-              console.log(empresa.name);
             }}
           >
             <BiSitemap color="white" className="icons-style" />
@@ -35,6 +44,9 @@ function Sidebar({ params, empresa, sidebarOpen, closeSidebar, setDashboard }) {
             to={`/admin/${params}`}
             onClick={(e) => {
               e.preventDefault();
+              if (window.outerWidth < 600) {
+                setSidebarOpen(!sidebarOpen);
+              }
               setDashboard(1);
             }}
           >
@@ -47,6 +59,9 @@ function Sidebar({ params, empresa, sidebarOpen, closeSidebar, setDashboard }) {
             to={`/admin/${params}`}
             onClick={(e) => {
               e.preventDefault();
+              if (window.outerWidth < 600) {
+                setSidebarOpen(!sidebarOpen);
+              }
               setDashboard(2);
             }}
           >
@@ -59,6 +74,9 @@ function Sidebar({ params, empresa, sidebarOpen, closeSidebar, setDashboard }) {
             to={`/admin/${params}`}
             onClick={(e) => {
               e.preventDefault();
+              if (window.outerWidth < 600) {
+                setSidebarOpen(!sidebarOpen);
+              }
               setDashboard(3);
             }}
           >
@@ -71,6 +89,10 @@ function Sidebar({ params, empresa, sidebarOpen, closeSidebar, setDashboard }) {
             to={`/admin/${params}`}
             onClick={(e) => {
               e.preventDefault();
+              if (window.outerWidth < 600) {
+                setSidebarOpen(!sidebarOpen);
+              }
+
               setDashboard(4);
             }}
           >
@@ -83,6 +105,10 @@ function Sidebar({ params, empresa, sidebarOpen, closeSidebar, setDashboard }) {
             to={`/admin/${params}`}
             onClick={(e) => {
               e.preventDefault();
+              if (window.outerWidth < 600) {
+                setSidebarOpen(!sidebarOpen);
+              }
+
               setDashboard(5);
             }}
           >
@@ -96,6 +122,10 @@ function Sidebar({ params, empresa, sidebarOpen, closeSidebar, setDashboard }) {
             to={`/admin/${params}`}
             onClick={(e) => {
               e.preventDefault();
+              if (window.outerWidth < 600) {
+                setSidebarOpen(!sidebarOpen);
+              }
+
               setDashboard(6);
             }}
           >
@@ -108,6 +138,10 @@ function Sidebar({ params, empresa, sidebarOpen, closeSidebar, setDashboard }) {
             to={`/admin/${params}`}
             onClick={(e) => {
               e.preventDefault();
+              if (window.outerWidth < 600) {
+                setSidebarOpen(!sidebarOpen);
+              }
+
               setDashboard(7);
             }}
           >

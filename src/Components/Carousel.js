@@ -5,6 +5,7 @@ import Facebook from "../Icons/Sociais/facebook.png";
 import instagram from "../Icons/Sociais/instagram.png";
 import Whatsapp from "../Icons/Sociais/whatsapp.png";
 import Warning from "../Icons/warning.png";
+
 import Api from "../Api";
 
 function Carousel() {

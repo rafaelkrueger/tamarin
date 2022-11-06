@@ -286,7 +286,6 @@ function Produtos({ empresa }) {
             marginTop: "10%",
             textAlign: "center",
             borderBottom: "0.5px black solid",
-            marginInline: "20%",
             paddingBottom: "0.5%",
           }}
           id="table-products-title"

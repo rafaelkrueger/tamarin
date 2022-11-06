@@ -67,7 +67,12 @@ body::-webkit-scrollbar-thumb {
   .information-card-description {
     font-size: 7pt;
   }
-
+  #services-prices{
+    margin: 13%;
+  }
+  #card-price{
+    margin-bottom: 9%;
+  }
   /*login responsive*/
 
   #login-content {
@@ -305,6 +310,116 @@ body::-webkit-scrollbar-thumb {
 .img-slider {
   width: 60%;
   margin: auto;
+}
+
+/*services*/
+#services-prices{
+  margin: 5%;
+  margin-bottom: 15%;
+}
+
+#card-price{
+  margin-right: 10%;
+  align-items: center;
+  width: 100%;
+}
+
+.card-price-body{
+  padding: 15px;
+  background-color: whitesmoke;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.card-price-header-title{
+  font-size: 16pt;
+}
+
+
+
+.card-price-header-junior{
+  background-color: #ae6317;
+  color: white;
+  text-align: center;
+  padding: 14px;
+  border-top-left-radius:10px ;
+  border-top-right-radius:10px ;
+}
+
+.card-price-footer-junior{
+  background-color: #ae6317;
+  color: white;
+  text-align: center;
+  padding: 15px;
+  padding-bottom: 25px;
+  border-bottom-left-radius:10px ;
+  border-bottom-right-radius:10px ;
+
+}
+
+#footer-button{
+  background-color: white;
+  color: rgba(0, 0, 0, 0.8);
+  padding: 7px;
+  border-radius: 25px;
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
+}
+
+.card-price-header-pleno{
+  background-color: rgb(185, 185, 185);
+  color: #252525;
+  text-align: center;
+  padding: 14px;
+  border-top-left-radius:10px ;
+  border-top-right-radius:10px ;
+}
+
+.card-price-footer-pleno{
+  background-color: rgb(185, 185, 185);
+  color: #252525;
+  text-align: center;
+  padding: 15px;
+  padding-bottom: 25px;
+  border-bottom-left-radius:10px ;
+  border-bottom-right-radius:10px ;
+
+}
+
+#footer-button-pleno{
+  background-color: white;
+  color: rgba(0, 0, 0, 0.8);
+  padding: 7px;
+  border-radius: 25px;
+}
+
+.card-price-header-senior{
+  background-color: rgb(221, 191, 16);
+  color: white;
+  text-align: center;
+  padding: 14px;
+  border-top-left-radius:10px ;
+  border-top-right-radius:10px ;
+}
+
+.card-price-footer-senior{
+  background-color: rgb(221, 191, 16);
+  color: white;
+  text-align: center;
+  padding: 15px;
+  padding-bottom: 25px;
+  border-bottom-left-radius:10px ;
+  border-bottom-right-radius:10px ;
+}
+
+#footer-button-senior{
+  background-color: white;
+  color: rgba(0, 0, 0, 0.8);
+  padding: 7px;
+  border-radius: 25px;
+}
+
+.card-price-item-icon{
+  margin-right: 4%;
+  margin-top: -1%;
 }
 
 /*Companies*/
