@@ -5,37 +5,14 @@ import Load from "../../Gifs/load.gif";
 import { AiOutlineCloseCircle } from "react-icons/ai";
 
 function ModalProduto({ modal, setModal, empresa, modalContent }) {
-  const [loading, setLoading] = useState({
-    visibility: "hidden",
-    display: "none",
-  });
-  const [loginText, setloginText] = useState({
-    visibility: "visible",
-    display: "block",
-  });
-
   const [updatedProduct, setupdatedProduct] = useState({
-    image: modalContent.image,
+    productId: modalContent.productId,
     product: modalContent.product,
+    image: modalContent.image,
     description: modalContent.image,
     value: modalContent.value,
     category: modalContent.category,
   });
-
-  const convertBase64 = (file) => {
-    return new Promise((resolve, reject) => {
-      const fileReader = new FileReader();
-      fileReader.readAsDataURL(file);
-
-      fileReader.onload = () => {
-        resolve(fileReader.result);
-      };
-
-      fileReader.onerror = (error) => {
-        reject(error);
-      };
-    });
-  };
 
   return (
     <div className="modal-produto" style={{ visibility: modal }}>
@@ -48,6 +25,7 @@ function ModalProduto({ modal, setModal, empresa, modalContent }) {
             <button
               onClick={() => {
                 setModal("hidden");
+                setupdatedProduct({});
               }}
               className="modal-close-button"
             >
@@ -58,21 +36,6 @@ function ModalProduto({ modal, setModal, empresa, modalContent }) {
         <div className="row">
           <div className="col">
             <hr />
-            <div class="input-group mb-3">
-              <input
-                name="testImage"
-                onChange={async (e) => {
-                  const fileReader = new FileReader();
-                  const file = e.target.files[0];
-                  const base64 = await convertBase64(file);
-                  setupdatedProduct({ ...updatedProduct, image: base64 });
-                }}
-                type="file"
-                class="form-control"
-                aria-label="Sizing example input"
-                aria-describedby="inputGroup-sizing-default"
-              />
-            </div>
 
             <div class="input-group mb-3">
               <input
@@ -94,6 +57,7 @@ function ModalProduto({ modal, setModal, empresa, modalContent }) {
                 value={updatedProduct.description}
                 type="text"
                 class="form-control"
+                rows={5}
                 onChange={(e) => {
                   setupdatedProduct({
                     ...updatedProduct,
@@ -154,15 +118,11 @@ function ModalProduto({ modal, setModal, empresa, modalContent }) {
           <button
             onClick={() => {
               Api.patch("https://tamarintec.herokuapp.com/update-produto", {
-                empresa: empresa._id,
+                productId: modalContent.productId,
                 product: updatedProduct.product,
                 description: updatedProduct.description,
                 category: updatedProduct.category,
                 value: updatedProduct.value,
-                image:
-                  updatedProduct.image == modalContent.image
-                    ? modalContent.image
-                    : updatedProduct.image,
               })
                 .then((res) => {
                   console.log(res.data);
@@ -170,21 +130,21 @@ function ModalProduto({ modal, setModal, empresa, modalContent }) {
                 .catch((err) => {
                   console.log(err);
                 });
+              setTimeout(() => {
+                setModal("hidden");
+              }, 2000);
+              window.alert("Produto Alterado com sucesso!");
+              setupdatedProduct({
+                product: "",
+                description: "",
+                category: "",
+                value: "",
+              });
             }}
             id="modal-alter-save-button"
             className="btn btn-success"
           >
             <h5>Atualizar Produto</h5>
-            <img
-              src={Load}
-              style={{
-                width: "10%",
-                height: "10%",
-                marginLeft: "43%",
-                visibility: loading.visibility,
-                display: loading.display,
-              }}
-            />
           </button>
         </div>
       </div>

@@ -19,8 +19,9 @@ function Produtos({ empresa }) {
   });
 
   const [modalContent, setmodalContent] = useState({
-    image: "",
+    productId: "",
     product: "",
+    image: "",
     description: "",
     value: "",
     category: "",
@@ -267,6 +268,10 @@ function Produtos({ empresa }) {
                                   .catch((err) => {
                                     console.log(err);
                                   });
+                                setModal({
+                                  visibility: "hidden",
+                                  display: "none",
+                                });
                               }}
                             >
                               DELETAR
@@ -351,8 +356,9 @@ function Produtos({ empresa }) {
                                   onClick={() => {
                                     setModal("visible");
                                     setmodalContent({
-                                      image: list.image,
+                                      productId: list._id,
                                       product: list.product,
+                                      image: list.image,
                                       description: list.description,
                                       value: list.value,
                                       category: list.category,
