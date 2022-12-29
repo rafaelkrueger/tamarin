@@ -6,6 +6,7 @@ import Sidebar from "./Sidebar/Sidebar";
 import Main from "./Main/Main";
 import Produtos from "./Produtos/Produtos";
 import Pedidos from "./Pedidos/Pedidos";
+import Configurations from "./Configuration/Configuration";
 import Site from "./Site/Site";
 import Api from "../Api";
 import "../App.css";
@@ -57,6 +58,7 @@ function Dashboard() {
         {dashboard === 1 ? <Produtos empresa={empresa} /> : 0}
         {dashboard === 2 ? <Pedidos empresa={empresa} /> : 0}
         {dashboard === 5 ? <Site empresa={empresa} /> : 0}
+        {dashboard === 6 ? <Configurations empresa={empresa} /> : 0}
       </div>
     </>
   );

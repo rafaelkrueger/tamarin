@@ -1,0 +1,32 @@
+#configurations{
+    margin-left:350px;
+    margin-top: 100px;
+    width: 70%;
+    background-color: rgba(0,0,0,0.09);
+    padding: 25px;
+}
+
+#configuration-profile-image-element{
+    width: 50%;
+    margin-left: 10%;
+    margin-bottom: 5%;
+    max-width: 50%;
+    min-width: 50%;
+    border-radius: 10px;
+}
+
+.configuration-profile-title{
+    text-align: center;
+    color:rgba(0,0,0,0.4);
+}
+
+#configuration-profile-input-element{
+    background-color: rgba(0,0,0,0.1);
+    padding: 5px;
+}
+
+#configuration-profile-input-button{
+    margin-top: -1%;
+
+    padding-bottom: 10px;
+}

@@ -127,7 +127,6 @@ function Sidebar({
               if (window.outerWidth < 600) {
                 setSidebarOpen(!sidebarOpen);
               }
-
               setDashboard(6);
             }}
           >
