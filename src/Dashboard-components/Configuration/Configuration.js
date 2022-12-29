@@ -52,7 +52,7 @@ function Configurations({ empresa }) {
               />
               <button
                 onClick={() => {
-                  Api.patch("http://localhost:8080/update-user", {
+                  Api.patch("https://tamarintec.herokuapp.com/update-user", {
                     id: empresa._id,
                     logo: configuration.logo,
                     name: configuration.name,
