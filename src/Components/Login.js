@@ -1,6 +1,7 @@
 import { React, useState, useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import "../App.css";
+import Logo from "../Icons/computer.png";
 import Load from "../Gifs/load.gif";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
@@ -36,7 +37,7 @@ function Login() {
         <div className="row" id="login-content">
           <div className="col" id="login-logo">
             <div id="logo-login-div">
-              <h2 id="logo-login">LOGO</h2>
+              <img src={Logo} style={{ width: "30%", height: "30%" }} />
             </div>
           </div>
           <div className="col" id="login-input">

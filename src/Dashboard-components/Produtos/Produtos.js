@@ -1,14 +1,18 @@
 import React, { useEffect, useState } from "react";
 import "./Produtos.css";
 import Api from "../../Api";
-import FileBase64 from "react-file-base64";
 import ModalProduto from "./ModalProduto";
-import { AiOutlinePlusCircle } from "react-icons/ai";
+import ModalCategoria from "./ModalCategoria";
+import { AiOutlinePlusCircle, AiOutlineMinusCircle } from "react-icons/ai";
+import UndefinedImage from "../../Images/undefined.jpg";
+
 import Load from "../../Gifs/load.gif";
 
 function Produtos({ empresa }) {
   const [category, setCategory] = useState("");
   const [modal, setModal] = useState("hidden");
+  const [categoryModal, setCategoryModal] = useState("hidden");
+
   const [insertLoad, setinsertLoad] = useState({
     visibility: "hidden",
     display: "none",
@@ -33,7 +37,28 @@ function Produtos({ empresa }) {
     value: 0,
     image: "",
     category: "",
+    avaible: 0,
   });
+
+  const [inputnumber, setinputNumber] = useState(0);
+
+  const [options, setOptions] = useState([]);
+  const [prototypeOptions, setPrototypeOptions] = useState({
+    id: "",
+    type: "",
+    price: "",
+  });
+  const addInput = () => {
+    setinputNumber(inputnumber + 1);
+  };
+
+  const removeInput = () => {
+    if (inputnumber > 0) {
+      setinputNumber(inputnumber - 1);
+    } else {
+      console.log(inputnumber);
+    }
+  };
 
   const convertBase64 = (file) => {
     return new Promise((resolve, reject) => {
@@ -113,6 +138,7 @@ function Produtos({ empresa }) {
             class="form-control"
             aria-label="Default"
             aria-describedby="inputGroup-sizing-default"
+            placeholder="Valor (ex: 13.50)"
           />
         </div>
         <br />
@@ -120,171 +146,233 @@ function Produtos({ empresa }) {
           Selecione uma categoria ( exemplo: Jóias, Camisetas, Acessórios, etc
           ). Adicione uma categoria caso necessário
         </p>
+        <hr />
         <br />
         <div className="input-buttons">
-          <select
-            className="select-category"
-            onChange={(e) => {
-              setnewProduct({ ...newProduct, category: e.target.value });
-            }}
-          >
-            <option value="">Categoria</option>
-            {empresa == undefined
-              ? ""
-              : empresa.categorias.map((list) => {
-                  return (
-                    <>
-                      <option value={list}>{list}</option>
-                    </>
-                  );
-                })}
-          </select>
-          <button
-            onClick={(e) => {
-              setinsertText({
-                display: "none",
-                visibility: "hidden",
-              });
-              setinsertLoad({
-                display: "block",
-                visibility: "visible",
-              });
-              Api.post(`https://tamarintec.herokuapp.com/set-produto`, {
-                empresa: empresa._id,
-                product: newProduct.product,
-                description: newProduct.description,
-                category: newProduct.category,
-                value: newProduct.value,
-                image: newProduct.image,
-              })
-                .then((res) => {
-                  console.log(res.data);
-                  setinsertLoad({
-                    display: "none",
-                    visibility: "hidden",
-                  });
-                  setinsertText({
-                    display: "block",
-                    visibility: "visible",
-                  });
-                })
-                .catch((err) => {
-                  console.log(err.message);
-                  setinsertLoad({
-                    display: "none",
-                    visibility: "hidden",
-                  });
-                  setinsertText({
-                    display: "block",
-                    visibility: "visible",
-                  });
-                });
-            }}
-            id="insert-button"
-            className="btn btn-success"
-          >
-            <p
-              style={{
-                display: insertText.display,
-                visibility: insertText.visibility,
+          <div class="input-group mb-3">
+            <span
+              class="input-group-text"
+              id="inputGroup-sizing-default"
+              onClick={() => {
+                setCategoryModal("visible");
               }}
             >
-              Inserir Produto
+              <button
+                style={{
+                  width: "100%",
+                  background: "rgba(0,0,0,0)",
+                  border: "0px",
+                }}
+              >
+                <AiOutlinePlusCircle width={100} />
+              </button>
+            </span>
+
+            <select
+              className="select-category"
+              style={{ border: "0.1px solid black" }}
+              onChange={(e) => {
+                setnewProduct({ ...newProduct, category: e.target.value });
+              }}
+            >
+              <option value="">Categoria</option>
+              {empresa == undefined
+                ? ""
+                : empresa.categorias.map((list) => {
+                    return (
+                      <>
+                        <option value={list}>{list}</option>
+                      </>
+                    );
+                  })}
+            </select>
+          </div>
+          <div
+            style={{
+              width: "70%",
+              marginLeft: "-15%",
+              marginTop: "0%",
+              marginBottom: "4%",
+            }}
+          >
+            <p style={{ width: "100%", marginBottom: "-0%" }}>
+              Quantidade Disponivel:
             </p>
-            <img
-              src={Load}
-              style={{
-                width: "15%",
-                height: "100%",
-                marginLeft: "40%",
-                display: insertLoad.display,
-                visibility: insertLoad.visibility,
+            <input
+              type="number"
+              style={{ width: "70%" }}
+              onChange={(e) => {
+                setnewProduct({ ...newProduct, avaible: e.target.value });
               }}
             />
-          </button>
+          </div>
         </div>
+        <button
+          onClick={(e) => {
+            setinsertText({
+              display: "none",
+              visibility: "hidden",
+            });
+            setinsertLoad({
+              display: "block",
+              visibility: "visible",
+            });
+            Api.post(`https://tamarintec.herokuapp.com/set-produto`, {
+              empresa: empresa._id,
+              product: newProduct.product,
+              description: newProduct.description,
+              category: newProduct.category,
+              value: newProduct.value,
+              image: newProduct.image,
+              avaible: newProduct.avaible,
+              options: options,
+            })
+              .then((res) => {
+                setinsertLoad({
+                  display: "none",
+                  visibility: "hidden",
+                });
+                setinsertText({
+                  display: "block",
+                  visibility: "visible",
+                });
+              })
+              .catch((err) => {
+                console.log(err.message);
+                setinsertLoad({
+                  display: "none",
+                  visibility: "hidden",
+                });
+                setinsertText({
+                  display: "block",
+                  visibility: "visible",
+                });
+              });
+          }}
+          id="insert-button"
+          className="btn btn-success"
+        >
+          <p
+            style={{
+              display: insertText.display,
+              visibility: insertText.visibility,
+            }}
+          >
+            Inserir Produto
+          </p>
+          <img
+            src={Load}
+            style={{
+              width: "15%",
+              height: "100%",
+              marginLeft: "40%",
+              display: insertLoad.display,
+              visibility: insertLoad.visibility,
+            }}
+          />
+        </button>
       </div>
 
       <div className="col" id="insert-category">
         <div id="category-insert-list">
-          <h4>INSIRA UMA CATEGORIA</h4>
-          <br />
-          <div class="input-group-prepend"></div>
-          <input
-            type="text"
-            onChange={(e) => {
-              setCategory(e.target.value);
-            }}
-            class="form-control"
-            aria-label="Default"
-            aria-describedby="inputGroup-sizing-default"
+          <img
+            src={newProduct.image == "" ? UndefinedImage : newProduct.image}
+            className="image-second-column"
           />
-          <br />
-          <button
-            className="btn btn-success"
-            onClick={() => {
-              Api.post(`https://tamarintec.herokuapp.com/set-categoria`, {
-                empresa: empresa._id,
-                category: category,
-              })
-                .then((res) => {
-                  console.log(res.data);
-                })
-                .catch((err) => {
-                  console.log(err);
+          <h4>INSIRA OPÇÕES DO PRODUTO</h4>
+          <hr />
+          <div class="input-group mb-3">
+            <input
+              onChange={(e) => {
+                setPrototypeOptions({
+                  ...prototypeOptions,
+                  type: e.target.value,
                 });
-            }}
-          >
-            INSERIR CATEGORIA
-          </button>
-        </div>
-        <div>
-          <h4 className="category-delete">Suas Categorias:</h4>
-          <table className="table table-light" id="category-table">
-            <tbody>
-              {empresa == undefined
-                ? ""
-                : empresa.categorias.map((list, key) => {
-                    return (
-                      <>
-                        <tr>
-                          <th scope="row">{list._id}</th>
-                          <td>{list}</td>
-                          <td>
-                            <button
-                              className="btn btn-danger"
-                              onClick={() => {
-                                Api.post(
-                                  `https://tamarintec.herokuapp.com/delete-categoria`,
-                                  {
-                                    empresa: empresa._id,
-                                    category: list,
-                                  }
-                                )
-                                  .then((res) => {
-                                    console.log(res.data);
-                                    setModal("hidden");
-                                  })
-                                  .catch((err) => {
-                                    console.log(err);
-                                  });
-                                setModal({
-                                  visibility: "hidden",
-                                  display: "none",
-                                });
-                              }}
-                            >
-                              DELETAR
-                            </button>
-                          </td>
-                        </tr>
-                      </>
-                    );
-                  })}
-            </tbody>
-          </table>
+              }}
+              type="text"
+              class="form-control"
+              placeholder="Tipo (P, M, G, GG)"
+            />
+            <input
+              id={0}
+              onChange={(e) => {
+                setPrototypeOptions({
+                  ...prototypeOptions,
+                  id: e.target.id,
+                  price: e.target.value,
+                });
+              }}
+              type="text"
+              class="form-control"
+              placeholder="Valor adicional (0, 2.5, ...)"
+              onBlur={(e) => {
+                options.push(prototypeOptions);
+              }}
+            />
+          </div>
+          {(() => {
+            let inputs = [];
+            for (let i = 0; i < inputnumber; i++) {
+              inputs.push(
+                <>
+                  <div class="input-group mb-3">
+                    <input
+                      onChange={(e) => {
+                        setPrototypeOptions({
+                          ...prototypeOptions,
+                          type: e.target.value,
+                        });
+                      }}
+                      type="text"
+                      aria-label="First name"
+                      class="form-control"
+                      placeholder="Tipo (P, M, G, GG)"
+                    />
+                    <input
+                      id={i + 1}
+                      onChange={(e) => {
+                        setPrototypeOptions({
+                          ...prototypeOptions,
+                          id: e.target.id,
+                          price: e.target.value,
+                        });
+                      }}
+                      type="text"
+                      aria-label="First name"
+                      class="form-control"
+                      placeholder="Valor adicional (0, 2.5, ...)"
+                      onBlur={() => {
+                        options.push(prototypeOptions);
+                        console.log(options);
+                      }}
+                    />
+                  </div>
+                </>
+              );
+            }
+            return inputs;
+          })()}
+          <div className="remove-add-insert">
+            <AiOutlineMinusCircle
+              onClick={removeInput}
+              color="red"
+              size={50}
+              className="remove-add-insert-icons"
+            />
+            <AiOutlinePlusCircle
+              onClick={addInput}
+              color="green"
+              size={50}
+              className="remove-add-insert-icons"
+            />
+          </div>
         </div>
       </div>
+      <ModalCategoria
+        empresa={empresa}
+        categoryModal={categoryModal}
+        setCategoryModal={setCategoryModal}
+      />
       <div>
         <h2
           style={{

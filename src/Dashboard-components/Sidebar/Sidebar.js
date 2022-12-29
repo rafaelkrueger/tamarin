@@ -1,8 +1,10 @@
 import React from "react";
 import "./Sidebar.css";
-import { BiSitemap, BiFoodMenu, BiMoney, BiUser } from "react-icons/bi";
+
+import { BiSitemap, BiFoodMenu, BiMoney } from "react-icons/bi";
 import { TbTruckDelivery } from "react-icons/tb";
 import { AiOutlineMessage, AiOutlineMenu } from "react-icons/ai";
+import { BsGear } from "react-icons/bs";
 import { CgWebsite } from "react-icons/cg";
 import { Link } from "react-router-dom";
 
@@ -129,8 +131,8 @@ function Sidebar({
               setDashboard(6);
             }}
           >
-            <BiUser color="white" className="icons-style" />
-            Usuários
+            <BsGear color="white" className="icons-style" />
+            Configurações
           </Link>
         </div>
         <div className="sidebar__link">

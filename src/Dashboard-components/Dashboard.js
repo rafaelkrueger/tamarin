@@ -28,7 +28,6 @@ function Dashboard() {
   useEffect(() => {
     Api.get(`https://tamarintec.herokuapp.com/empresa/${params.id}`)
       .then((res) => {
-        console.log(res.data);
         setEmpresa(res.data);
       })
       .catch((err) => {

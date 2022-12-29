@@ -34,9 +34,9 @@ function ModalProduto({ modal, setModal, empresa, modalContent }) {
           </div>
         </div>
         <div className="row">
+          <h2>{modalContent.product}</h2>
           <div className="col">
             <hr />
-
             <div class="input-group mb-3">
               <input
                 value={updatedProduct.product}

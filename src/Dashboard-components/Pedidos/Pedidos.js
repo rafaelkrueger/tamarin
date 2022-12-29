@@ -8,94 +8,106 @@ function Pedidos({ empresa }) {
       <h1 className="pedidos-title">Pedidos Mais Recentes</h1>
       <br />
       <div className="pedidos-wrap">
-        {empresa.pedidos.length != 0 ? (
+        {empresa == null || empresa.pedidos.length != 0 ? (
           empresa.pedidos.map((list) => {
             return (
-              <div class="card" id="card-id">
-                <div class="card-body">
-                  <h3 className="card-top-title">Pedido do Cliente</h3>
-                  <h5 class="card-title" id="card-pedidos-title">
-                    {list.produto == undefined
-                      ? ""
-                      : list.produto.map((food) => {
-                          return (
-                            <ul className="pedido-ul">
-                              <li>{food}</li>
-                            </ul>
-                          );
-                        })}
-                  </h5>
-                  <br />
-                  <h3 className="card-description">Descrição Do Cliente</h3>
-                  <p class="card-text">{list.description}</p>
-                </div>
-                <hr />
-                <div className="costumer-info">
-                  <p>
-                    <b>Nome: </b>
-                    {list.cliente.nome}
-                  </p>
-                  <p>
-                    <b>Rua: </b>
-                    {list.cliente.rua}
-                  </p>
-                  <p>
-                    <b>Bairro: </b>
-                    {list.cliente.bairro}
-                  </p>
-                  <p>
-                    <b>Forma de Pagamento: </b>
-                    {list.cliente.pagamento}
-                  </p>
-                </div>
-                <div id="sent-pedido">
+              <>
+                <div className="pedido">
+                  <h4>Pedido: {list._id}</h4>
+                  <hr />
+                  <div className="pedidio-body">
+                    <table id="pedido-table" className="table table-striped">
+                      <thead>
+                        <tr>
+                          <th scope="col" id="pedido-th">
+                            Imagem
+                          </th>
+                          <th scope="col" id="pedido-th">
+                            ID do Produto
+                          </th>
+                          <th scope="col" id="pedido-th">
+                            Produto
+                          </th>
+                          <th scope="col" id="pedido-th">
+                            Categoria
+                          </th>
+                          <th scope="col" id="pedido-th">
+                            Opção
+                          </th>
+                        </tr>
+                      </thead>
+
+                      {empresa == null
+                        ? ""
+                        : list.products[0].map((value) => {
+                            return (
+                              <>
+                                <tbody>
+                                  <tr>
+                                    <td className="pedido-td">
+                                      <img
+                                        className="pedido-image"
+                                        src={value.image}
+                                      />
+                                    </td>
+                                    <td className="pedido-td">{value._id}</td>
+                                    <td className="pedido-td">
+                                      {value.product.slice(0, 15)}...
+                                    </td>
+                                    <td className="pedido-td">
+                                      {value.category}
+                                    </td>
+                                    <td className="pedido-td">
+                                      Option do cliente
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </>
+                            );
+                          })}
+                    </table>
+                  </div>
+
+                  <div className="pedido-header">
+                    <div className="col">
+                      <h6>Nome: {list.name}</h6>
+                      <h6>Email: {list.email}</h6>
+                    </div>
+                    <div className="col">
+                      <h6>Número: {list.number}</h6>
+                      <h6>CPF: {list.cpf}</h6>
+                    </div>
+                  </div>
+                  <hr />
+                  <div className="pedidio-footer">
+                    <div className="col">
+                      <p>CEP: {list.cep}</p>
+                      <p>Estado: {list.state}</p>
+                    </div>
+                    <div className="col">
+                      <p>Cidade: {list.city}</p>
+                      <p>Rua: {list.street} - 132</p>
+                    </div>
+                  </div>
                   <button
-                    href="/"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      Api.post(
-                        `https://tamarintec.herokuapp.com/delete-pedido`,
-                        { empresa: empresa._id, id: list.id }
-                      )
-                        .then((res) => {
-                          console.log(res.data);
-                          console.log("Apagado Com Sucesso");
-                        })
-                        .catch((err) => {
-                          console.log(err);
-                        });
+                    className="btn btn-large btn-success"
+                    id="pedido-confirm-button"
+                    onClick={() => {
+                      Api.patch("http://localhost:8080/pedido-entregue", {
+                        empresa: empresa._id,
+                        id: list._id,
+                      });
                     }}
-                    class="btn btn-success"
-                    id="sent-pedido-button"
                   >
-                    PEDIDO ENRTEGUE
+                    Confirmar Entrega
                   </button>
                 </div>
-                <p
-                  style={{
-                    marginBottom: "1%",
-                    color: "green",
-                    fontSize: "20pt",
-                    textAlign: "center",
-                  }}
-                >
-                  R${list.cliente.valor}
-                </p>
-                <p
-                  style={{
-                    marginBottom: "1%",
-                    color: "rgba(0,0,0,0.7)",
-                    textAlign: "left",
-                  }}
-                >
-                  {list.cliente.horas}
-                </p>
-              </div>
+              </>
             );
           })
         ) : (
           <div className="pedidos-empty">
-            <h3 style={{ textAlign: "center", color: "rgba(0,0,0,0.4)" }}>
+            <h3 style={{ color: "rgba(0,0,0,0.4)" }}>
               Não há pedidos no momento!
             </h3>
           </div>

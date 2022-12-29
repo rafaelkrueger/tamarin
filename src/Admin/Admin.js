@@ -30,7 +30,6 @@ function Admin() {
     });
   };
   const [empresa, setEmpresa] = useState(null);
-
   useEffect(() => {
     Api.get("https://tamarintec.herokuapp.com/all")
       .then((res) => {
