@@ -71,7 +71,7 @@ function Configurations({ empresa }) {
             <h3 className="configuration-profile-title">
               Cuidado Ao Editar Seus Dados
             </h3>
-            <img src={Warning} />
+
             <hr />
             <div class="input-group mb-3">
               <div class="input-group-prepend">
