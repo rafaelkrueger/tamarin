@@ -13,7 +13,6 @@ function Pedidos({ empresa }) {
       <div className="row">
         <div className="col" style={{ maxWidth: "40%", zIndex: "1000" }}>
           <h3>Lista De Usuários da Loja</h3>
-
           <div className="users-table" style={{ maxWidth: "10%" }}>
             <table
               class="table table-striped"
@@ -73,7 +72,7 @@ function Pedidos({ empresa }) {
         <div className="col" style={{ maxWidth: "80%" }}>
           <div className="pedidos-wrap">
             <h3>Seus Pedidos Pendentes</h3>
-            {empresa == null || empresa.pedidos.length != 0 ? (
+            {empresa !== null && empresa.pedidos.length > 0 ? (
               empresa.pedidos.map((list) => {
                 return (
                   <>
