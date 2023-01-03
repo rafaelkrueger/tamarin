@@ -179,7 +179,7 @@ function SiteCards({ empresa }) {
               className="btn btn-success"
               onClick={() => {
                 Api.patch(
-                  "https://tamarintec.herokuapp.com//website-card-style",
+                  "https://tamarintec.herokuapp.com/website-card-style",
                   {
                     empresa: empresa._id,
                     websiteCardBackgroundColor:
