@@ -11,6 +11,7 @@ function SiteCards({ empresa }) {
     websiteHeartTagColor: empresa.websiteHeartTagColor,
     websiteDiscountTagColor: empresa.websiteDiscountTagColor,
     websiteButton: empresa.websiteButton,
+    websiteButtonColor: empresa.websiteButtonColor,
   });
 
   return (
@@ -173,6 +174,20 @@ function SiteCards({ empresa }) {
                   }}
                 />
               </div>
+              <p>Card Button Fonte</p>
+              <div class="input-group mb-3" id="header-color">
+                <input
+                  type="color"
+                  class="form-control"
+                  value={website.websiteButtonColor}
+                  onChange={(e) => {
+                    setWebsite({
+                      ...website,
+                      websiteButtonColor: e.target.value,
+                    });
+                  }}
+                />
+              </div>
             </div>
             <br />
             <button
@@ -190,6 +205,7 @@ function SiteCards({ empresa }) {
                     websiteHeartTagColor: website.websiteHeartTagColor,
                     websiteDiscountTagColor: website.websiteDiscountTagColor,
                     websiteButton: website.websiteButton,
+                    websiteButtonColor: website.websiteButtonColor,
                   }
                 );
               }}
