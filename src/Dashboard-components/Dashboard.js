@@ -15,7 +15,6 @@ function Dashboard() {
   const params = useParams();
   const [dashboard, setDashboard] = useState(0);
   const [empresa, setEmpresa] = useState(null);
-
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   const openSidebar = () => {
@@ -35,6 +34,7 @@ function Dashboard() {
         console.log(err);
       });
   });
+
   return (
     <>
       <NavbarDashboard
