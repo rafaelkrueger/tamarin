@@ -47,6 +47,7 @@ function Produtos({ empresa }) {
     id: "",
     type: "",
     price: "",
+    selected: false,
   });
   const addInput = () => {
     setinputNumber(inputnumber + 1);

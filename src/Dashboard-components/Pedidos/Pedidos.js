@@ -72,7 +72,7 @@ function Pedidos({ empresa }) {
         <div className="col" style={{ maxWidth: "80%" }}>
           <div className="pedidos-wrap">
             <h3>Seus Pedidos Pendentes</h3>
-            {empresa !== null && empresa.pedidos.length > 0 ? (
+            {empresa !== null ? (
               empresa.pedidos.map((list) => {
                 return (
                   <>
@@ -103,37 +103,43 @@ function Pedidos({ empresa }) {
                               </th>
                             </tr>
                           </thead>
-
-                          {empresa == null || list.products.length < 1
+                          {!empresa
                             ? ""
-                            : list.products[0].map((value) => {
-                                return (
-                                  <>
-                                    <tbody>
-                                      <tr>
-                                        <td className="pedido-td">
-                                          <img
-                                            className="pedido-image"
-                                            src={value.image}
-                                          />
-                                        </td>
-                                        <td className="pedido-td">
-                                          {value._id}
-                                        </td>
-                                        <td className="pedido-td">
-                                          {value.product.slice(0, 15)}...
-                                        </td>
-                                        <td className="pedido-td">
-                                          {value.category}
-                                        </td>
-                                        <td className="pedido-td">
-                                          Option do cliente
-                                        </td>
-                                      </tr>
-                                    </tbody>
-                                  </>
-                                );
-                              })}
+                            : (() => {
+                                for (
+                                  let i = 0;
+                                  i < list.products[0].length;
+                                  i++
+                                ) {
+                                  return (
+                                    <>
+                                      <tbody>
+                                        <tr>
+                                          <td className="pedido-td">
+                                            <img
+                                              className="pedido-image"
+                                              src={list.products[0][i].image}
+                                            />
+                                          </td>
+                                          <td className="pedido-td">
+                                            {list.products[0][i]._id}
+                                          </td>
+                                          <td className="pedido-td">
+                                            {list.products[0][i].product}
+                                            ...
+                                          </td>
+                                          <td className="pedido-td">
+                                            {list.products[0][i].category}
+                                          </td>
+                                          <td className="pedido-td">
+                                            Option do cliente
+                                          </td>
+                                        </tr>
+                                      </tbody>
+                                    </>
+                                  );
+                                }
+                              })()}
                         </table>
                       </div>
 
@@ -162,10 +168,13 @@ function Pedidos({ empresa }) {
                         className="btn btn-large btn-success"
                         id="pedido-confirm-button"
                         onClick={() => {
-                          Api.patch("http://localhost:8080/pedido-entregue", {
-                            empresa: empresa._id,
-                            id: list._id,
-                          });
+                          Api.patch(
+                            "https://tamarintec.herokuapp.com/pedido-entregue",
+                            {
+                              empresa: empresa._id,
+                              id: list._id,
+                            }
+                          );
                         }}
                       >
                         Confirmar Entrega
