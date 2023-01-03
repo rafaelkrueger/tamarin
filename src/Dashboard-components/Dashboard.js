@@ -35,7 +35,6 @@ function Dashboard() {
         console.log(err);
       });
   });
-  console.log(empresa != null ? empresa.pedidos[5].products[0][0] : "");
   return (
     <>
       <NavbarDashboard
