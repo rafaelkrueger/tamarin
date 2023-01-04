@@ -11,7 +11,7 @@ function SiteCards({ empresa }) {
     websiteHeartTagColor: empresa.websiteHeartTagColor,
     websiteDiscountTagColor: empresa.websiteDiscountTagColor,
     websiteButton: empresa.websiteButton,
-    websiteButtonColor: empresa.websiteButtonColor,
+    websiteButtonFont: empresa.websiteButtonFont,
   });
 
   return (
@@ -64,7 +64,7 @@ function SiteCards({ empresa }) {
                     <button
                       className="btn btn-large"
                       style={{
-                        color: website.websiteButtonColor,
+                        color: website.websiteButtonFont,
                         background: website.websiteButton,
                       }}
                     >
@@ -180,11 +180,11 @@ function SiteCards({ empresa }) {
                   <input
                     type="color"
                     class="form-control"
-                    value={website.websiteButtonColor}
+                    value={website.websiteButtonFont}
                     onChange={(e) => {
                       setWebsite({
                         ...website,
-                        websiteButtonColor: e.target.value,
+                        websiteButtonFont: e.target.value,
                       });
                     }}
                   />
@@ -196,7 +196,7 @@ function SiteCards({ empresa }) {
                 className="btn btn-success"
                 onClick={() => {
                   Api.patch(
-                    "https://tamarintec.herokuapp.com/website-card-style",
+                    "http://tamarintec.herokuapp.com/website-card-style",
                     {
                       empresa: empresa._id,
                       websiteCardBackgroundColor:
@@ -207,7 +207,7 @@ function SiteCards({ empresa }) {
                       websiteHeartTagColor: website.websiteHeartTagColor,
                       websiteDiscountTagColor: website.websiteDiscountTagColor,
                       websiteButton: website.websiteButton,
-                      websiteButtonColor: website.websiteButtonColor,
+                      websiteButtonFont: website.websiteButtonFont,
                     }
                   );
                 }}

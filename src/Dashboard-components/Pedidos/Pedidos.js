@@ -4,6 +4,14 @@ import Api from "../../Api";
 import NoProfile from "../../Images/empty-profile.png";
 
 function Pedidos({ empresa }) {
+  const optionShowed = (list) => {
+    for (let i = 0; i < list.options.length; i++) {
+      if (list.options[i].selected) {
+        return list.options[i].type;
+      }
+    }
+  };
+
   return (
     <div className="pedidos">
       <h1 className="pedidos-title">
@@ -132,7 +140,7 @@ function Pedidos({ empresa }) {
                                             {list.products[0][i].category}
                                           </td>
                                           <td className="pedido-td">
-                                            Option do cliente
+                                            {optionShowed(list.products[0][i])}
                                           </td>
                                         </tr>
                                       </tbody>
@@ -161,7 +169,9 @@ function Pedidos({ empresa }) {
                         </div>
                         <div className="col">
                           <p>Cidade: {list.city}</p>
-                          <p>Rua: {list.street} - 132</p>
+                          <p>
+                            Rua: {list.street} - {list.streetNumber}
+                          </p>
                         </div>
                       </div>
                       <button
