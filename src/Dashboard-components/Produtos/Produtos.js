@@ -31,6 +31,13 @@ function Produtos({ empresa }) {
     category: "",
   });
 
+  const [subImage, setSubImage] = useState({
+    subI1: "",
+    subI2: "",
+    subI3: "",
+    subI4: "",
+  });
+
   const [newProduct, setnewProduct] = useState({
     product: "",
     description: "",
@@ -38,6 +45,7 @@ function Produtos({ empresa }) {
     image: "",
     category: "",
     avaible: 0,
+    subImages: subImage,
   });
 
   const [inputnumber, setinputNumber] = useState(0);
@@ -81,6 +89,7 @@ function Produtos({ empresa }) {
       <div className="col" id="insert-col">
         <h2>INSIRA UM PRODUTO</h2>
         <br />
+        <h4 style={{ textAlign: "left" }}>Imagem Principal:</h4>
         <div class="input-group mb-3">
           <input
             name="testImage"
@@ -88,14 +97,70 @@ function Produtos({ empresa }) {
               const fileReader = new FileReader();
               const file = e.target.files[0];
               const base64 = await convertBase64(file);
+              console.log(base64);
+
               setnewProduct({ ...newProduct, image: base64 });
-              console.log(newProduct.image);
             }}
             type="file"
             class="form-control"
-            aria-label="Sizing example input"
-            aria-describedby="inputGroup-sizing-default"
           />
+        </div>
+        <br />
+        <h5 style={{ textAlign: "left" }}>Imagens Opcionais:</h5>
+        <br />
+        <div className="row" style={{ width: "100%" }}>
+          <div className="col">
+            <input
+              onChange={async (e) => {
+                const fileReader = new FileReader();
+                const file = e.target.files[0];
+                const base64 = await convertBase64(file);
+                setSubImage({ ...subImage, subI1: base64 });
+                console.log(subImage);
+              }}
+              type="file"
+              class="form-control"
+            />
+          </div>
+          <div className="col">
+            <input
+              onChange={async (e) => {
+                const fileReader = new FileReader();
+                const file = e.target.files[0];
+                const base64 = await convertBase64(file);
+                setSubImage({ ...subImage, subI2: base64 });
+                console.log(subImage);
+              }}
+              type="file"
+              class="form-control"
+            />
+          </div>
+          <div className="col">
+            <input
+              onChange={async (e) => {
+                const fileReader = new FileReader();
+                const file = e.target.files[0];
+                const base64 = await convertBase64(file);
+                setSubImage({ ...subImage, subI3: base64 });
+                console.log(subImage);
+              }}
+              type="file"
+              class="form-control"
+            />
+          </div>
+          <div className="col">
+            <input
+              onChange={async (e) => {
+                const fileReader = new FileReader();
+                const file = e.target.files[0];
+                const base64 = await convertBase64(file);
+                setSubImage({ ...subImage, subI4: base64 });
+                console.log(subImage);
+              }}
+              type="file"
+              class="form-control"
+            />
+          </div>
         </div>
         <br />
         <div class="input-group mb-3">
@@ -227,6 +292,7 @@ function Produtos({ empresa }) {
               image: newProduct.image,
               avaible: newProduct.avaible,
               options: options,
+              subImages: subImage,
             })
               .then((res) => {
                 setinsertLoad({
@@ -276,10 +342,34 @@ function Produtos({ empresa }) {
 
       <div className="col" id="insert-category">
         <div id="category-insert-list">
-          <img
-            src={newProduct.image == "" ? UndefinedImage : newProduct.image}
-            className="image-second-column"
-          />
+          <div className="row">
+            <div className="col" style={{ minWidth: "50%" }}>
+              <img
+                src={newProduct.image == "" ? UndefinedImage : newProduct.image}
+                className="image-second-column"
+              />
+            </div>
+            <div className="col" style={{ minWidth: "25%" }}>
+              <img
+                src={subImage.subI1 == "" ? UndefinedImage : subImage.subI1}
+                className="image-second-column-2"
+              />
+              <img
+                src={subImage.subI2 == "" ? UndefinedImage : subImage.subI2}
+                className="image-second-column-2"
+              />
+            </div>
+            <div className="col" style={{ minWidth: "25%" }}>
+              <img
+                src={subImage.subI3 == "" ? UndefinedImage : subImage.subI3}
+                className="image-second-column-2"
+              />
+              <img
+                src={subImage.subI4 == "" ? UndefinedImage : subImage.subI4}
+                className="image-second-column-2"
+              />
+            </div>
+          </div>
           <h4>INSIRA OPÇÕES DO PRODUTO</h4>
           <hr />
           <div class="input-group mb-3">
