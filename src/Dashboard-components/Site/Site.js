@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import UndefinedImage from "../../Images/undefined.jpg";
 import SiteCards from "./SiteCards";
+import SiteDetails from "./SiteDetails";
 import Api from "../../Api";
 import "./Site.css";
 
@@ -226,6 +227,7 @@ function Site({ empresa }) {
         </div>
       </div>
       <SiteCards empresa={empresa} />
+      <SiteDetails empresa={empresa} />
     </div>
   );
 }

@@ -189,32 +189,32 @@ function SiteCards({ empresa }) {
                     }}
                   />
                 </div>
-                <br />
-                <br />
               </div>
-              <button
-                className="btn btn-success"
-                onClick={() => {
-                  Api.patch(
-                    "https://tamarintec.herokuapp.com/website-card-style",
-                    {
-                      empresa: empresa._id,
-                      websiteCardBackgroundColor:
-                        website.websiteCardBackgroundColor,
-                      websiteCardFontColor: website.websiteCardFontColor,
-                      websiteDiscountColor: website.websiteDiscountColor,
-                      websitePriceColor: website.websitePriceColor,
-                      websiteHeartTagColor: website.websiteHeartTagColor,
-                      websiteDiscountTagColor: website.websiteDiscountTagColor,
-                      websiteButton: website.websiteButton,
-                      websiteButtonFont: website.websiteButtonFont,
-                    }
-                  );
-                }}
-              >
-                Alterar
-              </button>
             </div>
+            <br />
+            <button
+              style={{ width: "100%" }}
+              className="btn btn-success"
+              onClick={() => {
+                Api.patch(
+                  "https://tamarintec.herokuapp.com/website-card-style",
+                  {
+                    empresa: empresa._id,
+                    websiteCardBackgroundColor:
+                      website.websiteCardBackgroundColor,
+                    websiteCardFontColor: website.websiteCardFontColor,
+                    websiteDiscountColor: website.websiteDiscountColor,
+                    websitePriceColor: website.websitePriceColor,
+                    websiteHeartTagColor: website.websiteHeartTagColor,
+                    websiteDiscountTagColor: website.websiteDiscountTagColor,
+                    websiteButton: website.websiteButton,
+                    websiteButtonFont: website.websiteButtonFont,
+                  }
+                );
+              }}
+            >
+              Alterar
+            </button>
           </div>
         </div>
       ) : (
