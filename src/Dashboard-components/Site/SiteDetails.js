@@ -102,7 +102,12 @@ function SiteDetails({ empresa }) {
                             list.selected = true;
                           }}
                         >
-                          <p id="detailed-product-type">
+                          <p
+                            id="detailed-product-type"
+                            style={{
+                              color: website.websiteDetailedOptionsFont,
+                            }}
+                          >
                             {list.type == undefined ? "" : list.type}
                           </p>
                         </div>
