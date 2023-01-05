@@ -207,6 +207,7 @@ function SiteDetails({ empresa }) {
                 <input
                   type="color"
                   class="form-control"
+                  value={website.websiteDetailedBackground}
                   onChange={(e) => {
                     setWebsite({
                       ...website,
@@ -220,6 +221,7 @@ function SiteDetails({ empresa }) {
                 <input
                   type="color"
                   class="form-control"
+                  value={website.websiteDetailedFont}
                   onChange={(e) => {
                     setWebsite({
                       ...website,
@@ -234,6 +236,7 @@ function SiteDetails({ empresa }) {
                 <input
                   type="color"
                   class="form-control"
+                  value={website.websiteDetailedTitleFont}
                   onChange={(e) => {
                     setWebsite({
                       ...website,
@@ -247,6 +250,7 @@ function SiteDetails({ empresa }) {
                 <input
                   type="color"
                   class="form-control"
+                  value={website.websiteDetailedDescriptionFont}
                   onChange={(e) => {
                     setWebsite({
                       ...website,
@@ -261,6 +265,7 @@ function SiteDetails({ empresa }) {
                 <input
                   type="color"
                   class="form-control"
+                  value={website.websiteDetailedOptionsColor}
                   onChange={(e) => {
                     setWebsite({
                       ...website,
@@ -275,6 +280,7 @@ function SiteDetails({ empresa }) {
                 <input
                   type="color"
                   class="form-control"
+                  value={website.websiteDetailedOptionsFont}
                   onChange={(e) => {
                     setWebsite({
                       ...website,
@@ -289,6 +295,7 @@ function SiteDetails({ empresa }) {
                 <input
                   type="color"
                   class="form-control"
+                  value={website.websiteDetailedDiscountColor}
                   onChange={(e) => {
                     setWebsite({
                       ...website,
@@ -304,6 +311,7 @@ function SiteDetails({ empresa }) {
                 <input
                   type="color"
                   class="form-control"
+                  value={website.websiteDetailedPriceColor}
                   onChange={(e) => {
                     setWebsite({
                       ...website,
@@ -318,6 +326,7 @@ function SiteDetails({ empresa }) {
                 <input
                   type="color"
                   class="form-control"
+                  value={website.websiteDetailedHeartColor}
                   onChange={(e) => {
                     setWebsite({
                       ...website,
@@ -331,6 +340,7 @@ function SiteDetails({ empresa }) {
                 <input
                   type="color"
                   class="form-control"
+                  value={website.websiteDetailedButtonBuy}
                   onChange={(e) => {
                     setWebsite({
                       ...website,
@@ -345,6 +355,7 @@ function SiteDetails({ empresa }) {
                 <input
                   type="color"
                   class="form-control"
+                  value={website.websiteDetailedButtonFontBuy}
                   onChange={(e) => {
                     setWebsite({
                       ...website,
@@ -358,6 +369,7 @@ function SiteDetails({ empresa }) {
                 <input
                   type="color"
                   class="form-control"
+                  value={website.websiteDetailedButtonCart}
                   onChange={(e) => {
                     setWebsite({
                       ...website,
@@ -371,6 +383,7 @@ function SiteDetails({ empresa }) {
                 <input
                   type="color"
                   class="form-control"
+                  value={website.websiteDetailedButtonFontCart}
                   onChange={(e) => {
                     setWebsite({
                       ...website,

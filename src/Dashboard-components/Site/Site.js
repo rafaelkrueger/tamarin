@@ -7,11 +7,13 @@ import "./Site.css";
 
 function Site({ empresa }) {
   const [website, setWebsite] = useState({
-    websiteNavbarFooterColor: empresa.website.websiteNavbarFooterColor,
-    websiteFontFooterColor: empresa.website.websiteFontFooterColor,
-    websiteColor: empresa.website.websiteColor,
-    websiteFontColor: empresa.website.websiteFontColor,
-    websiteCarousel: empresa.website.websiteCarousel,
+    websiteNavbarFooterColor:
+      empresa != null ? empresa.website.websiteNavbarFooterColor : "",
+    websiteFontFooterColor:
+      empresa != null ? empresa.website.websiteFontFooterColor : "",
+    websiteColor: empresa != null ? empresa.website.websiteColor : "",
+    websiteFontColor: empresa != null ? empresa.website.websiteFontColor : "",
+    websiteCarousel: empresa != null ? empresa.website.websiteCarousel : "",
   });
 
   const convertBase64 = (file) => {
