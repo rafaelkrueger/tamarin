@@ -84,13 +84,10 @@ function Login() {
                     display: "block",
                   });
 
-                  Api.post(
-                    "https://tamarintec.herokuapp.com/get-user-dashboard",
-                    {
-                      email: userLogin.user,
-                      password: userLogin.password,
-                    }
-                  )
+                  Api.post("https://tamarintec.herokuapp.com/get-user", {
+                    email: userLogin.user,
+                    password: userLogin.password,
+                  })
                     .then((res) => {
                       if (res.data.length < 1) {
                         setloginText({
