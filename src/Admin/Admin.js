@@ -108,7 +108,7 @@ function Admin() {
           <div className="col">
             <div class="input-group mb-3">
               <span class="input-group-text" id="inputGroup-sizing-default">
-                Website
+                uni-ecommerce.netlify.app/
               </span>
               <input
                 onChange={(e) => {
