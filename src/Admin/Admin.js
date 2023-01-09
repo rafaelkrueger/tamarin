@@ -13,6 +13,8 @@ function Admin() {
     site: "",
     logo: "",
     usuario: "",
+    instaUsername: "",
+    instaPassword: "",
   });
 
   const convertBase64 = (file) => {
@@ -135,6 +137,33 @@ function Admin() {
               />
             </div>
             <div class="input-group mb-3">
+              <span class="input-group-text" id="inputGroup-sizing-default">
+                Usuario Instagram
+              </span>
+              <input
+                onChange={(e) => {
+                  setnewUser({ ...newUser, instaUsername: e.target.value });
+                }}
+                type="text"
+                class="form-control"
+                aria-label="Sizing example input"
+                aria-describedby="inputGroup-sizing-default"
+              />
+              <span class="input-group-text" id="inputGroup-sizing-default">
+                Senha Instagram
+              </span>
+              <input
+                onChange={(e) => {
+                  setnewUser({ ...newUser, instaPassword: e.target.value });
+                }}
+                type="text"
+                class="form-control"
+                aria-label="Sizing example input"
+                aria-describedby="inputGroup-sizing-default"
+              />
+            </div>
+
+            <div class="input-group mb-3">
               <input
                 onChange={async (e) => {
                   const file = e.target.files[0];
@@ -162,6 +191,8 @@ function Admin() {
                 site: newUser.site,
                 user: newUser.usuario,
                 logo: newUser.logo,
+                instaUsername: newUser.instaUsername,
+                instaPassword: newUser.instaPassword,
               })
                 .then(() => {
                   console.log(newUser);

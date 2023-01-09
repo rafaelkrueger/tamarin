@@ -283,7 +283,9 @@ function Produtos({ empresa }) {
               display: "block",
               visibility: "visible",
             });
-            Api.post(`https://tamarintec.herokuapp.com/set-produto`, {
+            console.log(empresa.social.instaUsername);
+            Api.post(`http://localhost:8080/set-produto`, {
+              //https://tamarintec.herokuapp.com
               empresa: empresa._id,
               product: newProduct.product,
               description: newProduct.description,
@@ -293,6 +295,9 @@ function Produtos({ empresa }) {
               avaible: newProduct.avaible,
               options: options,
               subImages: subImage,
+              instaUsername: empresa.social.instaUsername,
+              instaPassword: empresa.social.instaPassword,
+              publish: true,
             })
               .then((res) => {
                 setinsertLoad({

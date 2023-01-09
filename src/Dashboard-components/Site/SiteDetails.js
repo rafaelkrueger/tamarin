@@ -142,7 +142,7 @@ function SiteDetails({ empresa }) {
                       >
                         <s>
                           R$
-                          {empresa.produto[0].value}
+                          {empresa !== null ? empresa.produto[0].value : ""}
                         </s>
                       </h5>
                     </div>
