@@ -45,6 +45,7 @@ function Produtos({ empresa }) {
     image: "",
     category: "",
     avaible: 0,
+    discount: 0,
     subImages: subImage,
   });
 
@@ -294,6 +295,7 @@ function Produtos({ empresa }) {
               avaible: newProduct.avaible,
               options: options,
               subImages: subImage,
+              discount: newProduct.discount,
               instaUsername: empresa.social.instaUsername,
               instaPassword: empresa.social.instaPassword,
               publish: true,
@@ -374,6 +376,30 @@ function Produtos({ empresa }) {
               />
             </div>
           </div>
+          <br />
+          <h2>Mais Opções para produtos</h2>
+          <hr />
+          <p style={{ color: "rgba(0,0,0,0.4)" }}>
+            O valor para desconto não irá subtrair o valor total! o valor da
+            porcentagem escolhida mais o valor escolhido no outro campo
+          </p>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend"></div>
+            <input
+              type="text"
+              onChange={(e) => {
+                setnewProduct({ ...newProduct, discount: e.target.value });
+              }}
+              class="form-control"
+              aria-label="Default"
+              aria-describedby="inputGroup-sizing-default"
+              placeholder="25"
+            />
+            <span class="input-group-text" id="inputGroup-sizing-default">
+              %
+            </span>
+          </div>
+          <br />
           <h4>INSIRA OPÇÕES DO PRODUTO</h4>
           <hr />
           <div class="input-group mb-3">
