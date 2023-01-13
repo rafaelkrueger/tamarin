@@ -1,17 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./Pedidos.css";
 import Api from "../../Api";
 import NoProfile from "../../Images/empty-profile.png";
 
 function Pedidos({ empresa }) {
-  const optionShowed = (list) => {
-    for (let i = 0; i < list.options.length; i++) {
-      if (list.options[i].selected) {
-        return list.options[i].type;
-      }
-    }
-  };
-
   return (
     <div className="pedidos">
       <h1 className="pedidos-title">
@@ -90,11 +82,15 @@ function Pedidos({ empresa }) {
                       <div className="pedidio-body">
                         <table
                           id="pedido-table"
-                          className="table table-striped"
+                          className="table table-striped table-dark"
                         >
                           <thead>
                             <tr>
-                              <th scope="col" id="pedido-th">
+                              <th
+                                scope="col"
+                                id="pedido-th"
+                                style={{ width: "20%" }}
+                              >
                                 Imagem
                               </th>
                               <th scope="col" id="pedido-th">
@@ -111,43 +107,30 @@ function Pedidos({ empresa }) {
                               </th>
                             </tr>
                           </thead>
-                          {!empresa
-                            ? ""
-                            : (() => {
-                                for (
-                                  let i = 0;
-                                  i < list.products[0].length;
-                                  i++
-                                ) {
-                                  return (
-                                    <>
-                                      <tbody>
-                                        <tr>
-                                          <td className="pedido-td">
-                                            <img
-                                              className="pedido-image"
-                                              src={list.products[0][i].image}
-                                            />
-                                          </td>
-                                          <td className="pedido-td">
-                                            {list.products[0][i]._id}
-                                          </td>
-                                          <td className="pedido-td">
-                                            {list.products[0][i].product}
-                                            ...
-                                          </td>
-                                          <td className="pedido-td">
-                                            {list.products[0][i].category}
-                                          </td>
-                                          <td className="pedido-td">
-                                            {optionShowed(list.products[0][i])}
-                                          </td>
-                                        </tr>
-                                      </tbody>
-                                    </>
-                                  );
-                                }
-                              })()}
+                          <tbody style={{ color: "black" }}>
+                            {list.products.map((val) => {
+                              val.map((totalList) => {
+                                console.log(totalList);
+                                return (
+                                  <>
+                                    <td>
+                                      <img src={totalList} />
+                                    </td>
+                                    <td>{totalList._id}</td>
+                                    <td>{totalList.products}</td>
+                                    <td>{totalList.value}</td>
+                                    <td>
+                                      {totalList.options.filter((filtered) => {
+                                        if (filtered.selected) {
+                                          return filtered.type;
+                                        }
+                                      })}
+                                    </td>
+                                  </>
+                                );
+                              });
+                            })}
+                          </tbody>
                         </table>
                       </div>
 
