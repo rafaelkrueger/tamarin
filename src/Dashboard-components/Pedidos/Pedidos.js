@@ -73,7 +73,7 @@ function Pedidos({ empresa }) {
           <div className="pedidos-wrap">
             <h3>Seus Pedidos Pendentes</h3>
             {empresa !== null ? (
-              empresa.pedidos.map((list) => {
+              empresa?.pedidos?.map((list) => {
                 return (
                   <>
                     <div className="pedido">
@@ -108,7 +108,7 @@ function Pedidos({ empresa }) {
                             </tr>
                           </thead>
                           <tbody style={{ color: "black" }}>
-                            {list.products.map((val) => {
+                            {list?.products?.map((val) => {
                               val.map((totalList) => {
                                 console.log(totalList);
                                 return (

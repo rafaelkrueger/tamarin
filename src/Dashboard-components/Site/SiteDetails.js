@@ -142,7 +142,7 @@ function SiteDetails({ empresa }) {
                       >
                         <s>
                           R$
-                          {empresa !== null ? empresa.produto[0].value : ""}
+                          {empresa !== null ? empresa?.produto[0]?.value : ""}
                         </s>
                       </h5>
                     </div>
@@ -150,11 +150,11 @@ function SiteDetails({ empresa }) {
                       <p className="detailed-product-quantity-title">Total:</p>
                       <h5
                         style={{
-                          color: website.websiteDetailedPriceColor,
+                          color: website?.websiteDetailedPriceColor,
                         }}
                       >
                         R$
-                        {empresa.produto[0].value}
+                        {empresa?.produto[0]?.value}
                       </h5>
                     </div>
                     <div className="col">
