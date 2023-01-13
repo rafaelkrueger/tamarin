@@ -46,6 +46,7 @@ function Produtos({ empresa }) {
     category: "",
     avaible: 0,
     discount: 0,
+    publish: false,
     subImages: subImage,
   });
 
@@ -274,6 +275,26 @@ function Produtos({ empresa }) {
             />
           </div>
         </div>
+        <div
+          style={{
+            width: "100%",
+            marginTop: "0%",
+            marginBottom: "4%",
+            display: "flex",
+          }}
+        >
+          <p style={{ width: "100%", marginBottom: "-0%" }}>
+            Postar no Instagram:
+          </p>
+          <input
+            type="checkbox"
+            style={{ width: "100%" }}
+            onClick={(e) => {
+              setnewProduct({ ...newProduct, publish: !newProduct.publish });
+              console.log(newProduct.publish);
+            }}
+          />
+        </div>
         <button
           onClick={(e) => {
             setinsertText({
@@ -298,7 +319,7 @@ function Produtos({ empresa }) {
               discount: newProduct.discount,
               instaUsername: empresa.social.instaUsername,
               instaPassword: empresa.social.instaPassword,
-              publish: true,
+              publish: newProduct.publish,
             })
               .then((res) => {
                 setinsertLoad({
