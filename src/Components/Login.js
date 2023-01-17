@@ -45,7 +45,7 @@ function Login() {
             <div>
               <div class="input-group mb-3" id="s">
                 <span class="input-group-text" id="inputGroup-sizing-default">
-                  ID:
+                  Email:
                 </span>
                 <input
                   onChange={(e) => {
