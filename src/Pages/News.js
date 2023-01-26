@@ -10,7 +10,7 @@ function News() {
   const [news, setNews] = useState();
 
   useEffect(() => {
-    Api.get("http://localhost:8080/news/soccer")
+    Api.get("https://tamarintec.herokuapp.com/news/programming")
       .then((res) => {
         setNews(res.data.articles);
         console.log(res.data.articles);

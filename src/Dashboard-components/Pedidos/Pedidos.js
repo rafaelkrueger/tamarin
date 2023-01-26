@@ -1,9 +1,20 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./Pedidos.css";
 import Api from "../../Api";
 import NoProfile from "../../Images/empty-profile.png";
 
 function Pedidos({ empresa }) {
+  const selectedOption = (option) => {
+    for (let i = 0; i < option.length; i++) {
+      if (option[i].selected)
+        return (
+          <>
+            <td>{option[i].type}</td>
+          </>
+        );
+    }
+  };
+  const [trackcode, setTrackCode] = useState("");
   return (
     <div className="pedidos">
       <h1 className="pedidos-title">
@@ -82,7 +93,7 @@ function Pedidos({ empresa }) {
                       <div className="pedidio-body">
                         <table
                           id="pedido-table"
-                          className="table table-striped table-dark"
+                          className="table table-striped table-light"
                         >
                           <thead>
                             <tr>
@@ -93,7 +104,11 @@ function Pedidos({ empresa }) {
                               >
                                 Imagem
                               </th>
-                              <th scope="col" id="pedido-th">
+                              <th
+                                scope="col"
+                                id="pedido-th"
+                                style={{ maxWidth: "10%", minWidth: "10%" }}
+                              >
                                 ID do Produto
                               </th>
                               <th scope="col" id="pedido-th">
@@ -108,28 +123,41 @@ function Pedidos({ empresa }) {
                             </tr>
                           </thead>
                           <tbody style={{ color: "black" }}>
-                            {list?.products?.map((val) => {
-                              val.map((totalList) => {
-                                console.log(totalList);
-                                return (
-                                  <>
-                                    <td>
-                                      <img src={totalList} />
-                                    </td>
-                                    <td>{totalList._id}</td>
-                                    <td>{totalList.products}</td>
-                                    <td>{totalList.value}</td>
-                                    <td>
-                                      {totalList.options.filter((filtered) => {
-                                        if (filtered.selected) {
-                                          return filtered.type;
-                                        }
-                                      })}
-                                    </td>
-                                  </>
-                                );
-                              });
-                            })}
+                            {empresa !== null
+                              ? list?.products.map((val, index) => {
+                                  const row = [];
+                                  for (let i = 0; i < val.length; i++) {
+                                    row.push(
+                                      <>
+                                        <tr>
+                                          <td>
+                                            <img
+                                              src={val[i].image}
+                                              style={{ width: "100%" }}
+                                            />
+                                          </td>
+                                          <td
+                                            style={{
+                                              maxWidth: "10%",
+                                              minWidth: "10%",
+                                            }}
+                                          >
+                                            {val[i]._id.slice(0, 20)}...
+                                          </td>
+                                          <td>
+                                            {val[i].product.slice(0, 20)}...
+                                          </td>
+                                          <td>{val[i].category}</td>
+                                          <td style={{ marginLeft: "5%" }}>
+                                            {selectedOption(val[i].options)}
+                                          </td>
+                                        </tr>
+                                      </>
+                                    );
+                                  }
+                                  return row;
+                                })
+                              : ""}
                           </tbody>
                         </table>
                       </div>
@@ -155,6 +183,32 @@ function Pedidos({ empresa }) {
                           <p>
                             Rua: {list.street} - {list.streetNumber}
                           </p>
+                        </div>
+                      </div>
+                      <div className="pedido-send-track-code">
+                        <div className="col">
+                          <input
+                            className="form"
+                            placeholder="Codigo de Rastreio"
+                            style={{ textAlign: "center" }}
+                            onChange={(e) => {
+                              setTrackCode(e.target.value);
+                            }}
+                          />
+                        </div>
+                        <div className="col">
+                          <button
+                            onClick={() => {
+                              Api.post("/pedido-set-trackcode", {
+                                empresa: empresa._id,
+                                id: list._id,
+                                trackcode: trackcode,
+                              });
+                            }}
+                            className="btn btn-warning"
+                          >
+                            Enviar Código
+                          </button>
                         </div>
                       </div>
                       <button

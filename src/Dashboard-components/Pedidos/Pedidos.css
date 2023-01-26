@@ -10,7 +10,7 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  margin-left: 25%;
+  margin-left: 24.5%;
 }
 
 .pedido{
@@ -36,7 +36,7 @@
 
 #pedido-th{
   min-width: 70%;
-  max-width: 70%;  
+  max-width: 70%;
 }
 .pedido-td{
   min-width: 70%;
@@ -56,6 +56,13 @@
 .profile-image{
   max-width: 100%;
   border: 0.01px rgba(0,0,0,0.2) solid;
+}
+
+.pedido-send-track-code{
+  display: flex;
+  flex-direction: row;
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
 
 
