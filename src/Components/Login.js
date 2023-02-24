@@ -1,11 +1,11 @@
 import { React, useState, useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import "../App.css";
-import Logo from "../Icons/computer.png";
 import Load from "../Gifs/load.gif";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 import Api from "../Api";
+import Register from "./Register";
 
 function Login() {
   const [loading, setLoading] = useState({
@@ -37,7 +37,7 @@ function Login() {
         <div className="row" id="login-content">
           <div className="col" id="login-logo">
             <div id="logo-login-div">
-              <img src={Logo} style={{ width: "30%", height: "30%" }} />
+              <Register />
             </div>
           </div>
           <div className="col" id="login-input">
@@ -71,63 +71,65 @@ function Login() {
                   aria-describedby="inputGroup-sizing-default"
                 />
               </div>
-              <button
-                onClick={(e) => {
-                  setloginText({
-                    visibility: "hidden",
-                    display: "none",
-                  });
-
-                  e.preventDefault();
-                  setLoading({
-                    visibility: "visible",
-                    display: "block",
-                  });
-
-                  Api.post("https://tamarintec.herokuapp.com/get-user", {
-                    email: userLogin.user,
-                    password: userLogin.password,
-                  })
-                    .then((res) => {
-                      if (res.data.length < 1) {
-                        setloginText({
-                          visibility: "visible",
-                          display: "block",
-                        });
-                        setLoading({
-                          visibility: "hidden",
-                          display: "none",
-                        });
-                        window.alert("Usuario Invalido");
-                      } else {
-                        navigate(`/admin/` + res.data[0].site);
-                      }
-                    })
-                    .catch((err) => {
-                      console.log(err.message);
+              <div className="row">
+                <button
+                  onClick={(e) => {
+                    setloginText({
+                      visibility: "hidden",
+                      display: "none",
                     });
-                }}
-                className="btn btn-large btn-secondary"
-              >
-                <h5
-                  style={{
-                    visibility: loginText.visibility,
-                    display: loginText.display,
+
+                    e.preventDefault();
+                    setLoading({
+                      visibility: "visible",
+                      display: "block",
+                    });
+
+                    Api.post("https://tamarintec.herokuapp.com/get-user", {
+                      email: userLogin.user,
+                      password: userLogin.password,
+                    })
+                      .then((res) => {
+                        if (res.data.length < 1) {
+                          setloginText({
+                            visibility: "visible",
+                            display: "block",
+                          });
+                          setLoading({
+                            visibility: "hidden",
+                            display: "none",
+                          });
+                          window.alert("Usuario Invalido");
+                        } else {
+                          navigate(`/admin/` + res.data[0].site);
+                        }
+                      })
+                      .catch((err) => {
+                        console.log(err.message);
+                      });
                   }}
+                  className="btn btn-large btn-secondary"
                 >
-                  Login
-                </h5>
-                <img
-                  src={Load}
-                  style={{
-                    width: "10%",
-                    height: "10%",
-                    marginLeft: "43%",
-                    visibility: loading.visibility,
-                    display: loading.display,
-                  }}
-                />
-              </button>
+                  <h5
+                    style={{
+                      visibility: loginText.visibility,
+                      display: loginText.display,
+                    }}
+                  >
+                    Login
+                  </h5>
+                  <img
+                    src={Load}
+                    style={{
+                      width: "10%",
+                      height: "10%",
+                      marginLeft: "43%",
+                      visibility: loading.visibility,
+                      display: loading.display,
+                    }}
+                  />
+                </button>
+              </div>
             </div>
           </div>
         </div>

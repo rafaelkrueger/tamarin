@@ -26,10 +26,10 @@ function SiteDetails({ empresa }) {
     <>
       <div className="site-cards">
         <div className="row">
-          <div className="row">
+          <div className="row" id="detailed-product">
             <div
               className="col"
-              id="detailed-product-columns-2"
+              id="detailed-product-columns-3"
               style={{
                 maxWidth: "40%",
                 marginRight: "5%",
@@ -37,6 +37,13 @@ function SiteDetails({ empresa }) {
                 color: website.websiteDetailedFont,
               }}
             >
+              <img
+                src={empresa.produto[0].image}
+                style={{ maxWidth: "100%" }}
+              />
+              <br />
+              <br />
+
               <h3
                 id="detailed-product-title"
                 style={{
@@ -201,7 +208,11 @@ function SiteDetails({ empresa }) {
                 </div>
               </div>
             </div>
-            <div className="col" style={{ maxWidth: "25%" }}>
+            <div
+              className="col"
+              id="detailed-product-columns-2"
+              style={{ maxWidth: "25%" }}
+            >
               <p>Fundo De Detalhes</p>
               <div class="input-group mb-3" id="header-color">
                 <input
@@ -305,7 +316,11 @@ function SiteDetails({ empresa }) {
                 />
               </div>
             </div>
-            <div className="col" style={{ maxWidth: "25%" }}>
+            <div
+              id="detailed-product-columns-2"
+              className="col"
+              style={{ maxWidth: "25%" }}
+            >
               <p>Cor de Preço</p>
               <div class="input-group mb-3" id="header-color">
                 <input
@@ -427,13 +442,9 @@ function SiteDetails({ empresa }) {
                         websiteDetailedButtonFontCart:
                           website.websiteDetailedButtonFontCart,
                       }
-                    )
-                      .then(() => {
-                        window.alert("Details alterado com sucesso");
-                      })
-                      .catch(() => {
-                        window.alert("Details não alterado ");
-                      });
+                    ).then(() => {
+                      window.alert("Details alterado com sucesso");
+                    });
                   }}
                 >
                   Alterar

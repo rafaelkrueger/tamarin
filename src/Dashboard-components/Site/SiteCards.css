@@ -14,7 +14,7 @@
     margin-left: 5%;
     margin-right: 7%;
 }
-  
+
   .card-swiper-image{
     width: 100%;
     padding: 17px;
@@ -23,11 +23,18 @@
     max-width: 100%;
     min-width: 100%;
   }
-  
+
   .card-swiper-footer{
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
     padding-bottom: 25px;
     padding: 20px;
   }
-  
+
+  @media only screen and (max-width: 600px) {
+  #card-product-apresentation{
+    display: flex;
+    flex-direction: column;
+    margin-left: -13%;
+  }
+}

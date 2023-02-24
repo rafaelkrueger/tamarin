@@ -1,10 +1,12 @@
-import { React, useState, useEffect, useContext } from "react";
+import { React, useState, useEffect } from "react";
 import "./Admin.css";
+import { useNavigate } from "react-router-dom";
 import Navbar from "../Components/Navbar";
 import Footer from "../Components/Footer";
 import Api from "../Api";
 
 function Admin() {
+  const navigate = useNavigate();
   const [newUser, setnewUser] = useState({
     name: "",
     email: "",
@@ -195,7 +197,7 @@ function Admin() {
                 instaPassword: newUser.instaPassword,
               })
                 .then(() => {
-                  console.log(newUser);
+                  navigate(`/admin/` + newUser.site);
                 })
                 .catch((err) => {
                   console.log(newUser);

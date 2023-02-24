@@ -11,6 +11,7 @@ function ModalCategoria({ empresa, categoryModal, setCategoryModal }) {
         <div className="modal-category-content">
           <div className="modal-category-header">
             <h6
+              id="modal-category-close"
               onClick={() => {
                 setCategoryModal("hidden");
               }}
@@ -20,7 +21,7 @@ function ModalCategoria({ empresa, categoryModal, setCategoryModal }) {
             </h6>
           </div>
           <hr />
-          <div className="row">
+          <div className="row" id="modal-content-insert">
             <div className="col">
               <h4 className="insert-category-title">Insira uma Categoria</h4>
 
@@ -67,9 +68,10 @@ function ModalCategoria({ empresa, categoryModal, setCategoryModal }) {
                       return (
                         <>
                           <tr>
-                            <th scope="row">{list._id}</th>
-                            <td>{list}</td>
-                            <td>
+                            <td className="modal-categories-element-td">
+                              {list}
+                            </td>
+                            <td className="modal-categories-element-td">
                               <button
                                 className="btn btn-danger"
                                 onClick={() => {

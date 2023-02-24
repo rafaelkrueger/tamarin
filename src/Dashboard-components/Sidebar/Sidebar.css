@@ -60,10 +60,6 @@
   padding: 10px;
   border-radius: 3px;
 }
-.active_menu_link {
-  background-color: rgba(62, 161, 117, 0.3);
-  color: rgba(255, 255, 255);
-}
 
 .sidebar__link > a {
   text-decoration: none;
@@ -71,11 +67,6 @@
   font-weight: 700;
 }
 
-.sidebar__link a:focus {
-  padding: 7px;
-  border-radius: 3px;
-  background-color: rgba(62, 161, 117, 0.3);
-}
 
 .sidebar__logout {
   margin-top: 20px;

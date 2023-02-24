@@ -16,7 +16,7 @@ function Home() {
       <Agile />
       <Section />
       <Information />
-      <Services />
+      {/* <Services /> */}
       <Contact />
       <Footer />
     </>

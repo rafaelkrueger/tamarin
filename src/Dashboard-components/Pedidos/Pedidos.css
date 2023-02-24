@@ -28,6 +28,13 @@
   font-weight: 530;
 }
 
+#pedidos-user-title{
+  color: rgba(0,0,0, 0.5);
+}
+#pedidos-pedidos-title{
+  color: rgba(0,0,0, 0.5);
+}
+
 .pedido-header{
   display: flex;
   background-color: rgba(0,0,0, 0.04);
@@ -68,13 +75,32 @@
 
 @media only screen and (max-width: 455px) {
   .pedidos{
-    padding-left: 22%;
+    padding-left: 12%;
+  }
+  .pedido{
+    min-width: 190%;
+    margin-top: 10%;
+    margin-left: -25%;
   }
   .pedidos-title{
     margin-top: 26%;
     width: 100%;
   }
+  #pedidos-pedidos-title{
+    margin-left: -25%;
+  }
   #card-id {
     width: 100%;
+  }
+  #pedidos-clients{
+    display: flex;
+    flex-direction: column;
+  }
+  #pedidos-user-title{
+    min-width: 250%;
+    margin-bottom: 5%;
+  }
+  #pedidos-recent{
+    margin-top: 20%;
   }
 }

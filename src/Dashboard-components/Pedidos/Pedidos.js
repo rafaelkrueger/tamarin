@@ -21,9 +21,9 @@ function Pedidos({ empresa }) {
         Pedidos Mais Recentes e Usuários da loja
       </h1>
       <br />
-      <div className="row">
+      <div className="row" id="pedidos-clients">
         <div className="col" style={{ maxWidth: "40%", zIndex: "1000" }}>
-          <h3>Lista De Usuários da Loja</h3>
+          <h3 id="pedidos-user-title">Lista De Usuários da Loja</h3>
           <div className="users-table" style={{ maxWidth: "10%" }}>
             <table
               class="table table-striped"
@@ -80,9 +80,9 @@ function Pedidos({ empresa }) {
           </div>
         </div>
 
-        <div className="col" style={{ maxWidth: "80%" }}>
+        <div className="col" style={{ maxWidth: "80%" }} id="pedidos-recent">
           <div className="pedidos-wrap">
-            <h3>Seus Pedidos Pendentes</h3>
+            <h3 id="pedidos-pedidos-title">Seus Pedidos Pendentes</h3>
             {empresa !== null ? (
               empresa?.pedidos?.map((list) => {
                 return (

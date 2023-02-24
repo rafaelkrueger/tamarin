@@ -54,9 +54,17 @@ function Dashboard() {
           setDashboard={setDashboard}
         />
         {dashboard === 0 ? <Main empresa={empresa} /> : 0}
-        {dashboard === 1 ? <Produtos empresa={empresa} /> : 0}
+        {dashboard === 11 || dashboard === 12 || dashboard === 13 ? (
+          <Produtos empresa={empresa} dashboard={dashboard} />
+        ) : (
+          0
+        )}
         {dashboard === 2 ? <Pedidos empresa={empresa} /> : 0}
-        {dashboard === 5 ? <Site empresa={empresa} /> : 0}
+        {dashboard === 51 || dashboard === 52 || dashboard === 53 ? (
+          <Site empresa={empresa} dashboard={dashboard} />
+        ) : (
+          0
+        )}
         {dashboard === 6 ? <Configurations empresa={empresa} /> : 0}
       </div>
     </>

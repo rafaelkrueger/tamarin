@@ -66,3 +66,105 @@
 .remove-add-insert-icons{
   margin-inline: 30px;
 }
+
+.modal-categories-element-td{
+  width: 1%;
+}
+
+@media only screen and (max-width: 655px) {
+  #cardapio {
+    min-width: 100%;
+  }
+  #insert-products{
+    margin-top: 15%;
+    min-width: 400px;
+    max-width: 400px;
+    margin-left: -25%;
+    display: flex;
+    flex-direction: column;
+  }
+  #insert-col{
+    height: 100%;
+    border-right: 0px white solid;
+  }
+  #modal-content-insert{
+    display: flex;
+    flex-direction: column;
+  }
+  .modal-category-content{
+    min-height: 100%;
+    min-width: 100%;
+    margin-left: -30%;
+  }
+  #category-table{
+    overflow-y: scroll;
+  }
+  #insert-button{
+    margin-top: 5%;
+    width: 100%;
+  }
+  /*products table*/
+  #products-crud{
+    margin-left: -20%;
+    margin-top: 15%;
+    min-width: 130%;
+    max-width: 130%;
+  }
+  #products-table{
+    min-width: 200px;
+    max-width: 200px;
+  }
+  #delete-product-button{
+    font-size: 7pt;
+  }
+  .modal-produto-content{
+    height: 100%;
+    margin-top: 12%;
+    padding: 30px;
+    width: 100%;
+    min-height: 100%;
+  }
+  #modal-product-alter{
+    display: flex;
+    flex-direction: column;
+  }
+  /*cupom section*/
+  .cupom-section{
+    margin-top: 15%;
+    margin-left:-25%;
+  }
+  #cupom-section-content{
+    display: flex;
+    flex-direction: column;
+  }
+  #cupom-section-inserting{
+    display: flex;
+    margin-bottom: 25%;
+    max-width: 100%;
+  }
+  #cupom-section-code{
+    display: flex;
+    max-height: 50%;
+  }
+  #cupom-section-insert{
+    display: flex;
+    flex-direction: row;
+    max-height: 50%;
+  }
+  #cupom-section-code-percentage{
+    min-width: 63%;
+    max-width: 63%;
+  }
+
+  #cupom-section-insert-element-input{
+    height: 50px;
+    margin-top: 10%;
+  }
+  #cupom-section-insert-element-button{
+    height: 50px;
+    font-size: 10pt;
+    margin-top: 10%;
+    min-width: 144px;
+    padding-bottom: 10px;
+  }
+}

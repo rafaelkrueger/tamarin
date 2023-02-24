@@ -11,7 +11,7 @@ function Services() {
     <>
       <Navbar />
       <Agile />
-      <ServicesC />
+      {/* <ServicesC /> */}
       <Companies />
       <Contact />
       <Footer />

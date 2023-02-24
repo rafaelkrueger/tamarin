@@ -33,7 +33,7 @@ function ModalProduto({ modal, setModal, empresa, modalContent }) {
             </button>
           </div>
         </div>
-        <div className="row">
+        <div className="row" id="modal-product-alter">
           <h2>{modalContent.product}</h2>
           <div className="col">
             <hr />
@@ -79,9 +79,10 @@ function ModalProduto({ modal, setModal, empresa, modalContent }) {
                   type="text"
                   class="form-control"
                   onChange={(e) => {
+                    const modifiedValue = e.target.value.replace(",", ".");
                     setupdatedProduct({
                       ...updatedProduct,
-                      value: e.target.value,
+                      value: modifiedValue,
                     });
                   }}
                 />

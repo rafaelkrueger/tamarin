@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import { AiFillHeart } from "react-icons/ai";
+
 import Api from "../../Api";
 import "./SiteCards.css";
 
@@ -16,16 +18,26 @@ function SiteCards({ empresa }) {
 
   return (
     <div className="site-cards">
-      <h3>Escolha o Estilo de apresentação de Produtos</h3>
-      <hr />
       {empresa.produto.length > 0 ? (
-        <div className="row">
+        <div className="row" id="card-product-apresentation">
           <div className="col" id="card-view-style">
             <div
               className="card-swiper"
               id="card-swiper"
               style={{ background: website.websiteCardBackgroundColor }}
             >
+              <div className="wishlist-slider-part">
+                <AiFillHeart size={20} color={website.websiteHeartTagColor} />
+              </div>
+              <div
+                style={{
+                  background: website.websiteDiscountTagColor,
+                  color: website.websiteCardFontColor,
+                }}
+                className="discount-slider-part"
+              >
+                <p>{empresa !== null ? empresa?.produto[0]?.discount : ""}%</p>
+              </div>
               <img
                 src={empresa.produto[0].image}
                 className="card-swiper-image"

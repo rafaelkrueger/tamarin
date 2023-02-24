@@ -14,6 +14,11 @@
     flex-direction: row;
     justify-content: space-around;
 }
+#detailed-product-columns-3{
+    padding:30px;
+    border-radius: 10px;
+}
+
 .detailed-product-quantity{
     max-width: 100%;
     display: flex;
@@ -26,6 +31,19 @@
     padding: 9px 40px 5px 40px;
     border-radius: 10px;
 }
+.wishlist-slider-part{
+    text-align: left;
+    margin-left: 5%;
+    margin-bottom: -7%;
+    padding-top:15px;
+}
+.discount-slider-part{
+    text-align: right;
+    margin-right: 7%;
+    padding-top:15px;
+
+}
+
 #detailed-options-title{
     text-align: left;
 }
@@ -44,4 +62,27 @@
 
 #detailed-button-col-2{
     max-width: 20%;
+}
+
+
+@media only screen and (max-width: 655px) {
+    #detailed-product{
+        margin-left: -9%;
+        margin-top: 15%;
+        display: flex;
+        flex-direction: column;
+    }
+    #detailed-product-columns-1{
+        min-width: 100%;
+    }
+    #detailed-product-columns-2{
+        margin-top: 30%;
+        min-width: 100%;
+    }
+    #detailed-product-columns-3{
+        min-width: 100%;
+    }
+    .detailed-product-options{
+        max-width: 100%;
+    }
 }

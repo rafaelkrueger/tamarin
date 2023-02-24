@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./Sidebar.css";
 
 import { BiSitemap, BiFoodMenu, BiMoney } from "react-icons/bi";
 import { TbTruckDelivery } from "react-icons/tb";
-import { AiOutlineMessage, AiOutlineMenu } from "react-icons/ai";
+import { AiOutlineMessage } from "react-icons/ai";
+import { IoIosArrowDown } from "react-icons/io";
 import { BsGear } from "react-icons/bs";
 import { CgWebsite } from "react-icons/cg";
 import { Link } from "react-router-dom";
@@ -16,6 +17,8 @@ function Sidebar({
   closeSidebar,
   setDashboard,
 }) {
+  const [dropProducts, setDropProducts] = useState(false);
+  const [dropWebsite, setDropWebsite] = useState(false);
   return (
     <div className={sidebarOpen ? "sidebar-responsive" : ""} id="sidebar">
       <div className="sidebar__title">
@@ -46,14 +49,55 @@ function Sidebar({
             to={`/admin/${params}`}
             onClick={(e) => {
               e.preventDefault();
-              if (window.outerWidth < 600) {
-                setSidebarOpen(!sidebarOpen);
-              }
-              setDashboard(1);
+              setDropProducts(!dropProducts);
             }}
           >
             <BiFoodMenu color="white" className="icons-style" />
             Produtos
+            <IoIosArrowDown style={{ marginLeft: "5%" }} />
+            {dropProducts ? (
+              <>
+                <ul style={{ listStyle: "none" }}>
+                  <li
+                    onClick={() => {
+                      if (window.outerWidth < 600) {
+                        setSidebarOpen(!sidebarOpen);
+                      }
+                      setDashboard(11);
+                    }}
+                    style={{ marginBottom: "5%" }}
+                  >
+                    Inserir Produtos
+                  </li>
+                  <li
+                    onClick={() => {
+                      if (window.outerWidth < 600) {
+                        setSidebarOpen(!sidebarOpen);
+                      }
+
+                      setDashboard(13);
+                    }}
+                    style={{ marginBottom: "5%" }}
+                  >
+                    Remover e Alterar
+                  </li>
+                  <li
+                    onClick={() => {
+                      if (window.outerWidth < 600) {
+                        setSidebarOpen(!sidebarOpen);
+                      }
+
+                      setDashboard(12);
+                    }}
+                    style={{ marginBottom: "-4%" }}
+                  >
+                    Cupoms da loja
+                  </li>
+                </ul>
+              </>
+            ) : (
+              ""
+            )}
           </Link>
         </div>
         <div className="sidebar__link">
@@ -107,15 +151,55 @@ function Sidebar({
             to={`/admin/${params}`}
             onClick={(e) => {
               e.preventDefault();
-              if (window.outerWidth < 600) {
-                setSidebarOpen(!sidebarOpen);
-              }
-
-              setDashboard(5);
+              setDropWebsite(!dropWebsite);
             }}
           >
             <CgWebsite color="white" className="icons-style" />
             Website
+            <IoIosArrowDown style={{ marginLeft: "5%" }} />
+            {dropWebsite ? (
+              <>
+                <ul style={{ listStyle: "none" }}>
+                  <li
+                    onClick={() => {
+                      if (window.outerWidth < 600) {
+                        setSidebarOpen(!sidebarOpen);
+                      }
+                      setDashboard(51);
+                    }}
+                    style={{ marginBottom: "5%" }}
+                  >
+                    Estilos do Site
+                  </li>
+                  <li
+                    onClick={() => {
+                      if (window.outerWidth < 600) {
+                        setSidebarOpen(!sidebarOpen);
+                      }
+
+                      setDashboard(53);
+                    }}
+                    style={{ marginBottom: "5%" }}
+                  >
+                    Estilo dos Slides
+                  </li>
+                  <li
+                    onClick={() => {
+                      if (window.outerWidth < 600) {
+                        setSidebarOpen(!sidebarOpen);
+                      }
+
+                      setDashboard(52);
+                    }}
+                    style={{ marginBottom: "-4%" }}
+                  >
+                    Estilo dos Produtos
+                  </li>
+                </ul>
+              </>
+            ) : (
+              ""
+            )}
           </Link>
         </div>
         <h2>Plataforma</h2>
