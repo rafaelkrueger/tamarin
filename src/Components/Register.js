@@ -163,6 +163,7 @@ function Register() {
               Registre-se Agora!
             </h5>
             <img
+              alt="loading"
               src={Load}
               style={{
                 width: "5%",

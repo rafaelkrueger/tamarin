@@ -10,6 +10,7 @@ import Configurations from "./Configuration/Configuration";
 import Site from "./Site/Site";
 import Api from "../Api";
 import "../App.css";
+import Mensagens from "./Mensagens/Mensagens";
 
 function Dashboard() {
   const params = useParams();
@@ -60,6 +61,7 @@ function Dashboard() {
           0
         )}
         {dashboard === 2 ? <Pedidos empresa={empresa} /> : 0}
+        {dashboard === 3 ? <Mensagens empresa={empresa} /> : 0}
         {dashboard === 51 || dashboard === 52 || dashboard === 53 ? (
           <Site empresa={empresa} dashboard={dashboard} />
         ) : (
