@@ -4,6 +4,7 @@ import Load from "../Gifs/load.gif";
 import { useNavigate } from "react-router-dom";
 
 function Register() {
+  const pdfUrl = process.env.PUBLIC_URL + '/term_of_use.pdf';
   const navigate = useNavigate();
   const [newUser, setnewUser] = useState({
     name: "",
@@ -119,6 +120,7 @@ function Register() {
               />
             </div>
           </div>
+          <p style={{color:'rgba(0,0,0,0.5'}}l>Ao se registrar você concorda com o <a href="../Files/term.pdf" download>Termo de Uso</a> da companhia</p>
           <br />
           <button
             style={{
@@ -148,7 +150,6 @@ function Register() {
                 instaUsername: newUser.instaUsername,
                 instaPassword: newUser.instaPassword,
               }).then((res) => {
-                console.log(res.data);
                 navigate(`/admin/` + newUser.site);
               });
             }}

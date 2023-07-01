@@ -18,35 +18,54 @@ import {
 function Main({ empresa }) {
   const data = [
     {
-      name: "Page A",
-      uv: 4000,
-      pv: 2400,
-      amt: 2400,
+      name: "Jan",
+      uv: 0,
+      pv: 0,
+      amt: 0,
     },
     {
-      name: "Page B",
-      uv: 3000,
-      pv: 1398,
-      amt: 2210,
+      name: "Fev",
+      uv: 0,
+      pv: 0,
+      amt: 0,
     },
     {
-      name: "Page C",
-      uv: 2000,
-      pv: 9800,
-      amt: 2290,
+      name: "Mar",
+      uv: 0,
+      pv: 0,
+      amt: 0,
     },
     {
-      name: "Page D",
-      uv: 2780,
-      pv: 3908,
-      amt: 2000,
+      name: "Abr",
+      uv: 0,
+      pv: 0,
+      amt: 0,
     },
     {
-      name: "Page E",
-      uv: 1890,
-      pv: 4800,
-      amt: 2181,
+      name: "Maio",
+      uv: 0,
+      pv: 0,
+      amt: 0,
     },
+    {
+      name: "Junho",
+      uv: 0,
+      pv: 0,
+      amt: 0,
+    },
+    {
+      name: "Julho",
+      uv: 0,
+      pv: 0,
+      amt: 0,
+    },
+    {
+      name: "Agosto",
+      uv: 0,
+      pv: 0,
+      amt: 0,
+    },
+
   ];
 
   const data01 = [
@@ -108,6 +127,18 @@ function Main({ empresa }) {
     <>
       <div id="main">
         <div className="row" id="cards-main">
+          <br />
+          <br />
+          <h3>
+            Seu Ecommerce:{" "}
+            <a
+              href={`https://uni-ecommerce.netlify.app/${empresa?.site}`}
+              target="_blank"
+              rel="noreferrer"
+            >
+              {empresa?.name}
+            </a>{" "}
+          </h3>
           <div className="col" id="cards-main-component">
             <div className="card-main-content">
               <div className="col">
@@ -159,14 +190,10 @@ function Main({ empresa }) {
           </div>
         </div>
 
-        <div className="row" id="main-graphics">
+        <div className="row" id="main-graphics" style={{ marginTop: "4%" }}>
           <div className="col" id="main-graphic-1">
-            <h3 id="main-graphic-title">TOTAL OBTIDO</h3>
-            <div id="feature-graphic">
-              <CircularProgressbar value={70} text={"70%"} strokeWidth={3} />
-            </div>
-            <p>graphic</p>
-            <h3>R$</h3>
+            <h4 id="main-graphic-title">TOTAL OBTIDO</h4>
+            <h3>R$0.00</h3>
             <p id="main-graphic-subtitle">Seu lucro bruto obtido é de R$</p>
           </div>
           <div className="col" id="main-graphic-2">

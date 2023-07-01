@@ -572,6 +572,10 @@ body::-webkit-scrollbar-thumb {
 .create-account {
   margin-top: 5%;
 }
+.checkout{
+  display: flex;
+}
+
 /*Footer style*/
 #footer-style {
   background-color: black;

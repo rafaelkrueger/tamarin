@@ -22,7 +22,7 @@ function Mensagens({ empresa }) {
   };
 
   useEffect(() => {
-    const newSocket = socketIO.connect("https://tamarintec.herokuapp.com");
+    const newSocket = socketIO.connect("https://tamarintec.herokuapp.com/");
     setSocket(newSocket);
     return socket?.disconnect();
   }, []);

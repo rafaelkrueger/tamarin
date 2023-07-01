@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import UndefinedImage from "../../Images/undefined.jpg";
 import Api from "../../Api";
 import "./Site.css";

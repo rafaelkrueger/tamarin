@@ -517,7 +517,6 @@ function InsertProducts({ empresa, categoryModal, setCategoryModal }) {
                         placeholder="Valor adicional (0, 2.5, ...)"
                         onBlur={() => {
                           options.push(prototypeOptions);
-                          console.log(options);
                         }}
                       />
                     </div>
